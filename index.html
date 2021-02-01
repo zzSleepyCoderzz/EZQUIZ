@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 
 <html id= "total" lang="en" dir="ltr">
@@ -7,15 +8,19 @@
    <meta charset="utf-8">
    <link rel = "stylesheet" href = "style.css" >
 </head>
+
 <h1> EZQUIZ </h1>
 <div id = "loginbox">
-  <form id = "loginpage"  action="/action_page.php">
-   <label for="fname">Username:</label><br>
-   <input type="text" id="fname" name="fname" ><br>
-   <br></br>
-   <label for="lname" id="llabel">Password:</label><br>
-   <input type="text" id="lname" name="lname" ><br><br>
+  <form id = "loginpage"  action="validation.php" method="POST">
 
+   <label for="username">Username:</label><br>
+   <input type="text" id="fname" name="username" ><br>
+
+   <br></br>
+   <label for="password" id="llabel">Password:</label><br>
+   <input type="text" id="lname" name="password" ><br><br>
+
+   <br> </br>
    <button id= "button">Login</button>
  </form>
  <br> </br>

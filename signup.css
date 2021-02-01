@@ -15,7 +15,7 @@ padding-bottom: 20px;
   border-radius: 25px;
   margin-left: auto;
   margin-right: auto;
-  width: 300px;
+  width: 600px;
   height: 400px;
   box-shadow: 2px 2px 2px 2px gray;
   background-color: lightgreen;
@@ -27,12 +27,28 @@ padding-bottom: 20px;
 }
 
 #button{
-  margin-left: 45px;
+  width: 80px;
+  margin-top: 20%;
+  margin-left: 80%;
 }
 
 #signuplink{
-  margin-left: 24%;
+  margin-left: 36.5%;
   margin-right: 30%;
   font-size: 14px;
   cursor: pointer;
+}
+
+#textfield1{
+  width: 50%;
+  float: left;
+}
+
+#textfield2{
+  width: 50%;
+  float: right;
+}
+
+#textfield22{
+  margin-left: 180px;
 }
