@@ -2,11 +2,34 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Home</title>
+    <link rel = "stylesheet" href = "home.css" >
 
   <h1>Home Page</h1>
+
   </head>
   <body>
+    <div id="line">      </div>
+    <div id="verline">   </div>
+    <div id="verline2">  </div>
+
+    <?php
+    include "home.php";
+    $name = mysqli_query($db,"select name from users");
+    ?>
+
+    <div id="verline3"> WELCOME <?php include "signup.php"; echo $name; ?>
+
+    <div id= "logout">
+    <a id = "logoutlink" href="index.html">Log Out </a>
+    </div>
+    </div>
+
+    <div id="verline4">  <div id="boxtext1"><a id = "logoutlink" href="index.html">Take a Quiz </a> </div> </div>
+    <div id="verline5">  <div id="boxtext2"><a id = "logoutlink" href="index.html">Check Your Stats </a></div></div>
+    <div id="verline6">  <div id="boxtext3"><a id = "logoutlink" href="index.html">Change Your Details </a> </div></div>
+    <div id="verline7">  </div>
+
 
   </body>
 </html>
