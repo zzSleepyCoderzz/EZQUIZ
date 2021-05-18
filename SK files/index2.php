@@ -30,8 +30,8 @@ $nokp = $_SESSION['idpengguna'];
                $dataA = mysqli_query($hubung , "SELECT * FROM pengguna WHERE idpengguna = '$nokp'");
                $infoA = mysqli_fetch_array($dataA);
                 ?>
-                <?php echo $infoA['nama']; ?> <br>
-                <?php echo $infoA['idpengguna']; ?> <br>
+                Nama anda :<?php echo $infoA['nama']; ?> <br>
+                Nombor KP :<?php echo $infoA['idpengguna']; ?> <br>
              </p>
             </center>
            </td>

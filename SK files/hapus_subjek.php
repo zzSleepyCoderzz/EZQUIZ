@@ -18,6 +18,6 @@ $hapuskan3 = mysqli_query($hubung , "DELETE FROM soalan WHERE idtopik = '$delete
 $hapuskan4 = mysqli_query($hubung , "DELETE FROM pilihan WHERE idtopik = '$delete2' ");
 $hapuskan5 = mysqli_query($hubung , "DELETE FROM perekodan WHERE idtopik = '$delete2' ");
 
-echo <script>alert('Hapus Subjek berjaya');
-window.location = 'subjek_senarai.php'</script>
+echo "<script>alert('Hapus Subjek berjaya');
+window.location = 'subjek_senarai.php'</script>";
 ?>

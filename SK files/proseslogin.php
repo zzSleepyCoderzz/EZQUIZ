@@ -10,8 +10,8 @@ if (isset($_POST['idpengguna'])) {
   $row = mysqli_fetch_assoc($query);
 
 if(mysqli_num_rows($query) == 0 || $row['password'] != $pass){
-  echo <script> alert ('ID Pengguna atau Kata Laluan yang salah');
-  window.location = 'login.php'</script>;
+  echo "<script> alert ('ID Pengguna atau Kata Laluan yang salah');
+  window.location = 'login.php'</script>";
 }
 else {
   $_SESSION['idpengguna'] = $row ['idpengguna'];
