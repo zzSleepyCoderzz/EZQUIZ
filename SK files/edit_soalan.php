@@ -58,8 +58,6 @@ while ($dataSoalan = mysqli_fetch_array($pilihSoalan)) {
                 AS a INNER JOIN soalan AS q ON q.idsoalan = a.idsoalan WHERE
                 q.idsoalan= $soalan_terpilih");
                 while ($dataPilihan = mysqli_fetch_array($pilihan)) {
-                  // code...
-                }
                 ?>
                 <p>
                   Pilihan <?php echo $no; ?>
@@ -72,7 +70,7 @@ while ($dataSoalan = mysqli_fetch_array($pilihSoalan)) {
                   }
                    ?>
                 </p>
-                <?php $no++; ?>
+                <?php $no++; }?>
                 <p>
                   <input type="submit" name="submit" value="KEMASKINI">
                   <input type="button" value="BATAL" onclick="history.back()">

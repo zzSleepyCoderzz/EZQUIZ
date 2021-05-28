@@ -4,8 +4,8 @@ include 'header.php';
 session_start();
 
 if (isset($_POST['idpengguna'])) {
-  $user = $POST['idpengguna'];
-  $pass = $POST['password'];
+  $user = $_POST['idpengguna'];
+  $pass = $_POST['password'];
   $query = mysqli_query($hubung, "SELECT * FROM pengguna WHERE idpengguna = '$user' AND password = '$pass'");
   $row = mysqli_fetch_assoc($query);
 

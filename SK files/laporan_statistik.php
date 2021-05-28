@@ -19,12 +19,12 @@ require 'keselamatan.php';
                <td width = "80" valign = "top">
                  <img src="<?php echo "$lencana"; ?>" width="85" height="102" hspace = "7" align = "left">
                </td>
-               <td><h5><?php echo "$nama_sekolah"; ?></h5></td>
+               <td><h5><?php echo "$nama_sekolah"; ?></h5>
              </tr>
              <tr>
                <td colspan="3" valign = "top"><hr></td>
              </tr>
-            </table>
+           </table></td>
            </td>
          </tr>
          <?php
@@ -35,7 +35,6 @@ require 'keselamatan.php';
            $infoSoalan = mysqli_fetch_array($soalan);
            $subjek = mysqli_query($hubung , "SELECT * FROM subjek WHERE idsubejek = '$infoRekod[idsubjek]'");
            $infoSubjek = mysqli_fetch_array($subjek);
-         }
           ?>
           <tr style = "font-size:16px">
             <td><?php echo $no; ?></td>
@@ -43,9 +42,9 @@ require 'keselamatan.php';
             <td><?php echo $infoRekod['topik']; ?></td>
             <td><?php echo $infoSoalan['bil']; ?></td>
           </tr>
-          <?php $no ++ ?>
+          <?php $no ++; }?>
      </table>
-     <center> <h5> *LAPORAN TAMAT * <br> Jumlah Rekod: <?php echo "no-1"; ?></h5><br>
+     <center> <h5> *LAPORAN TAMAT * <br> Jumlah Rekod: <?php echo $no-1; ?></h5><br>
      <a href = "index2.php"> Home</a>
      <a href = "javascript:window.print()">Cetak Laporan</a>
      <a href = "logout.php"> Home</a> Logout </center>

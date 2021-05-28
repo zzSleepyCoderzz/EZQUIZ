@@ -41,7 +41,6 @@ while ($res = mysqli_fetch_array($result)) {
          GROUP BY a.idsoalan ORDER BY q.idsoalan ASC");
 
          while ($info1 = mysqli_fetch_array($data1)) {
-         }
           ?>
 
           <tr>
@@ -55,7 +54,7 @@ while ($res = mysqli_fetch_array($result)) {
               <button> HAPUS </button>
             </td>
           </tr>
-          <?php $no++; ?>
+          <?php $no++; }?>
        </table>
      </main>
      <center><font style="font-size:14px"> *SENARAI TAMAT* <br>Jumlah Rekod: <?php echo $no-1; ?></font></center>

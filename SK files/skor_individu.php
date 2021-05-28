@@ -1,5 +1,5 @@
 <?php
-require 'sanmbung.php';
+require 'sambung.php';
 require 'keselamatan.php';
 include 'header.php';
 
@@ -29,28 +29,27 @@ $idpengguna = $_SESSION['idpengguna'];
          </tr>
          <?php
          $no = 1;
-         $data - mysqli_query($hubung, "SELECT * FROM perekodan
+         $data1 = mysqli_query($hubung, "SELECT * FROM perekodan
          WHERE idpengguna = '$idpengguna' ORDER BY catatan_masa DESC
          limit 0,10");
 
          while ($info1 = mysqli_fetch_array($data1)) {
 
-           $dataTopik = mysqli_query($hubung "SELECT * FROM topik WHERE
+           $dataTopik = mysqli_query($hubung , "SELECT * FROM topik WHERE
            idtopik = '$info1[idtopik]' ");
            $getTopik = mysqli_fetch_array($dataTopik);
 
-           $dataSoalan = mysqli_query($hubung "SELECT COUNT(idtopik) AS
+           $dataSoalan = mysqli_query($hubung , "SELECT COUNT(idtopik) AS
            'bil' FROM soalan WHERE idtopik = '$info1[idtopik]' ");
            $getBilSoalan = mysqli_fetch_array($dataSoalan);
 
-           $dataSubjek = mysqli_query($hubung "SELECT * FROM subjek WHERE
+           $dataSubjek = mysqli_query($hubung , "SELECT * FROM subjek WHERE
            idsubjek = '$getTopik[idsubjek]' ");
            $getTopik = mysqli_fetch_array($dataSubjek);
 
            $bilSoalan = $getBilSoalan['bil'];
            $markah_Topik = $getTopik['markah'];
 
-         }
           ?>
 
           <tr style="font-size:14px">
@@ -61,7 +60,7 @@ $idpengguna = $_SESSION['idpengguna'];
             <td> <?php echo $info1['skor']; ?></td>
             <td> <?php echo number_format(($info1['skor']/$bilSoalan)*$markah_Topik); ?> %</td>
           </tr>
-          <?php $no++; ?>
+          <?php $no++; }?>
        </table>
      </main>
      <center>

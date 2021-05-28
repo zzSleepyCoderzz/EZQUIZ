@@ -36,7 +36,6 @@ while ($res = mysqli_fetch_array($result)) {
            $dataBil = mysqli_query($hubung , "SELECT COUNT(idtopik) AS 'bil'
            FROM soalan WHERE idtopik = '$info1[idtopik]'");
            $getBil = mysqli_fetch_array($dataBil);
-         }
           ?>
           <tr>
             <td><?php echo $no; ?></td>
@@ -44,7 +43,7 @@ while ($res = mysqli_fetch_array($result)) {
             <td><?php echo $getBil['bil']; ?></td>
             <td><a href ="soalan_mula.php?idtopik = <?php echo $info1['idsubjek']; ?>" ><button>BUKA</button></td>
           </tr>
-          <?php $no++; ?>
+          <?php $no++; } ?>
        </table>
      </main>
      <center>

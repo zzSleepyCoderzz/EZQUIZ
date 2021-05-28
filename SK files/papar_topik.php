@@ -41,7 +41,6 @@ while ($res = mysqli_fetch_array($result)) {
          $no = 1;
          $data1 = mysqli_query($hubung , "SELECT * FROM pengguna WHERE aras = ''PELAJAR' ORDER BY nama ASC");
          while ($info1 = mysqli_fetch_array($data1)) {
-         }
           ?>
           <tr>
             <td><?php echo $no; ?></td>
@@ -55,7 +54,7 @@ while ($res = mysqli_fetch_array($result)) {
               <a href="hapus.php?idtopik = <?php echo $info1['idtopik']; ?>"><button>Hapus</button>
             </td>
           </tr>
-          <?php $no++; ?>
+          <?php $no++; }?>
        </table>
      </main>
      <br>

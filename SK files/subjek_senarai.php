@@ -34,19 +34,18 @@ include 'header.php';
          $data1 = mysqli_query($hubung, "SELECT * FROM subjek
          ORDER BY subjek ASC");
          while ($info1 = mysqli_fetch_array($data1)) {
-         }
           ?>
           <tr>
             <td><?php echo $no; ?></td>
             <td><?php echo $info1['subjek']; ?></td>
             <td align = "center">
-              <a href = "hapus_subjek.php? idsubjek = <?php echo $info1['idsubjek']; ?>"
+              <a href = "hapus_subjek.php?idsubjek = <?php echo $info1['idsubjek']; ?>"
                 onclick="return confirm ('Awas!!!, Topik, Soalan dan jawapan akan dihapuskan. Anda Pasti?')">
-              <button>Hapus</button>
+              <button> Hapus </button>5
               </a>
             </td>
           </tr>
-          <?php $no++; ?>
+          <?php $no++; }?>
        </table>
      </main>
      <center>

@@ -19,7 +19,7 @@ include 'header.php';
 
   <table width = '70%' border = 0 align="center">
     <td width = '20%'>
-<img src="<?php echo $logo ?>" alt="Error" width="100%" height="100%">
+<img src="<?php echo $logo; ?>" alt="Error" width="100%" height="100%">
     </td>
     <td width = '50%'>
       <marquee behavior="alternate" direction="left"> SOALAN TERKINI </marquee>

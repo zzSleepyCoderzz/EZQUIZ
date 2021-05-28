@@ -6,7 +6,7 @@ include 'sambung.php';
  <html lang="en" dir="ltr">
    <head>
      <meta charset="utf-8">
-     <title><?php echo "$nama_sistem"; ?></title>
+     <title><?php echo $nama_sistem; ?></title>
    </head>
    <body>
      <center>

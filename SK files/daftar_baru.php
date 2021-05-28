@@ -1,12 +1,13 @@
 <?php
 require 'sambung.php';
 include 'header.php';
+
 if (isset($_POST['idpengguna'])){
   $idpengguna = $_POST['idpengguna'];
   $password = $_POST['password'];
   $nama = $_POST['nama'];
   $jantina = $_POST['jantina'];
-  $daftar = "INSERT INTO pengguna (idpengguna, password, nama, jantina, aras) VALUES ('$idpengguna', '$password', '$nama', '$jantina' 'PELAJAR')";
+  $daftar = "INSERT INTO pengguna (idpengguna, password, nama, jantina, aras) VALUES ('$idpengguna', '$password', '$nama', '$jantina', 'PELAJAR')";
   $hasil = mysqli_query($hubung, $daftar);
   if ($hasil) {
     echo "<script>alert('Pendaftaran berjaya');
@@ -32,20 +33,23 @@ if (isset($_POST['idpengguna'])){
        <tr>
          <td>
            <form method="POST">
+
              <label>NOMBOR KAD PENGENALAN</label><br>
              <input onblur = "checkLength(this)" type="text" name="idpengguna" placeholder="Tanpa tanda -" maxlength = "12" size = "25"
              onkeypress="return event.charCode >= 48 && event.charCode <= 57" required autofocus>
              <script>
              function checkLength(el) {
-               if (el.value.length) {
+               if (el.value.length != 12) {
                  alert("Nombor KP mesti 12 digit")
                }
              }
              </script>
+
              <br><label>Katalaluan</label></br>
-             <input onblur = "checkLength(this)" type="text" name="idpengguna" placeholder="Tanpa tanda -" maxlength = "12" size = "25"
+             <input type="password" name="password" placeholder="4 digit sahaja" maxlength = "4"
              onkeypress="return event.charCode >= 48 && event.charCode <= 57" required >
              <br><label>Nama Pelajar</label></br>
+
              <input type="text" name="nama" size="50" placeholder="Nama Penuh Anda" required><br>
              <label>Jantina</label><br><select  name="jantina">
                <option value="">---Pilih----</option>

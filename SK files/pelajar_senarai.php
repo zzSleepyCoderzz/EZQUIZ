@@ -26,9 +26,8 @@ include 'header.php';
 
          <?php
          $no = 1;
-         $data1 = mysqli_query($hubung , "SELECT * FROM pengguna WHERE aras = ''PELAJAR' ORDER BY nama ASC");
+         $data1 = mysqli_query($hubung , "SELECT * FROM pengguna WHERE aras = 'PELAJAR' ORDER BY nama ASC");
          while ($info1 = mysqli_fetch_array($data1)) {
-         }
           ?>
           <tr>
             <td><?php echo $no; ?></td>
@@ -39,7 +38,7 @@ include 'header.php';
             <td><a href = "hapus_pelajar.php?idpengguna = <?php echo $info1['idpengguna'];  ?>" onclick="return confirm ('AWAS!, Semua rekod yang berkaitan akan dihapuskan , Anda Pasti?')">
             <button> HAPUS </button></td>
           </tr>
-          <?php $no++ ?>
+          <?php $no++ ; }?>
        </table>
      </main>
      <center> <font style = 'font-size:14px'> *SENARAI TAMAT* <br> Jumlah Rekod : <?php echo $no-1;?> </font> </center>

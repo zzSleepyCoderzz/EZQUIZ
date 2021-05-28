@@ -1,6 +1,6 @@
 <?php
 require 'sambung.php';
-require 'keselamata.php';
+require 'keselamatan.php';
 include 'header.php';
  ?>
 
@@ -31,11 +31,9 @@ include 'header.php';
 
            $infoTopik = mysqli_fetch_array($topik);
 
-           $soalan = mysqli_query($hubung "SELECT idsoalan, COUNT(idsoalan) AS 'bilsoalan' FROM soalan WHERE idtopik = '$infoTopik[idtopik]'GROUP BY idsoalan");
+           $soalan = mysqli_query($hubung , "SELECT idsoalan, COUNT(idsoalan) AS 'bilsoalan' FROM soalan WHERE idtopik = '$infoTopik[idtopik]' GROUP BY idsoalan");
 
            $infosoalan - mysqli_fetch_array($soalan);
-
-         }
           ?>
           <tr>
             <td> <?php echo $no; ?></td>
@@ -46,7 +44,7 @@ include 'header.php';
             <td><a href = "hapus_guru.php?idpengguna = <?php echo $info1['idpengguna'];  ?>" onclick="return confirm ('AWAS!, Semua rekod yang berkaitan akan dihapuskan , Anda Pasti?')">
             <button> HAPUS </button></td>
           </tr>
-          <?php $no++; ?>
+          <?php $no++; }?>
        </table>
      </main>
      <center> <font style = 'font-size:14px'> *SENARAI TAMAT* <br> Jumlah Rekod : <?php echo $no-1;?> </font></center>

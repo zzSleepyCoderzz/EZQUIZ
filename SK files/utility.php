@@ -20,12 +20,12 @@
 
   <center>
     <input type="button" name="" value="++" onclick="zoomIn()">
-    <input type="button" name="" value="++" onclick="zoomOut()">
+    <input type="button" name="" value="--" onclick="zoomOut()">
     <button id = "color"> Warna </button>
   </center>
 
   <script>
-  document.getElementsById('color').onclick = changeColor;
+  document.getElementsById('color').onclick = changeColor();
   var currentColor = "red";
   function changeColor(){
     if(currentColor == "red"){

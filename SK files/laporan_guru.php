@@ -50,7 +50,6 @@ $infoTopik = mysqli_fetch_array($topik);
 
          $pelajar = mysqli_query($hubung, "SELECT * FROM pengguna WHERE idpengguna = '$infoRekod[idpengguna]'");
          $infoPelajar = mysqli_fetch_array($pelajar);
-       }
         ?>
         <tr style="font-size:16px">
           <td> <?php echo $no; ?></td>
@@ -58,7 +57,7 @@ $infoTopik = mysqli_fetch_array($topik);
           <td> <?php echo $infoRekod['Max(skor)']; ?></td>
           <td> <?php echo $infoRekod['Bil']; ?></td>
         </tr>
-        <?php $no++: ?>
+        <?php $no++; } ?>
      </table>
      <center>
        <h5>*LAPORAN TAMAT* <br>

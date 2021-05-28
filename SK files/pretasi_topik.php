@@ -39,7 +39,6 @@ $guru = $_SESSIION['idpengguna'];
           $rekod = mysqli_query($hubung , "SELECT idtopik, COUNT(idtopik) as 'bil' FROm perekodan
           WHERE idtopik = '$infoTopik[idtopik]'");
           $infoJawab = mysqli_fetch_array($rekod);
-          }
          ?>
 
          <tr>
@@ -52,7 +51,7 @@ $guru = $_SESSIION['idpengguna'];
              <button> Papar </button>
            </td>
          </tr>
-         <?php no++; ?>
+         <?php $no++; } ?>
        </table>
      </main>
      <center><font style = 'font-size:14px'> *Senarai Tamat* <br> Jumlah Rekod: <?php echo $no-1; ?></font></center>
