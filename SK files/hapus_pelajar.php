@@ -2,13 +2,21 @@
 require 'sambung.php';
 require 'keselamatan.php';
 
-$Delpelajar = $_GET['idpengguna'];
+$id = $_GET['idpengguna'];
+$dbname = $database;
+$conn = mysqli_connect("localhost", "root", "", $dbname);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
-$hapuskan1 = mysqli_query($hubung, "DELETE FROM pengguna WHERE idpengguna = $Delpelajar");
-$hapuskan2 = mysqli_query($hubung, "DELETE FROM perekodan WHERE idpengguna = $Delpelajar");
+$sql = "DELETE FROM pengguna WHERE idpengguna = $id ";
 
-
-
- echo "<script>alert('Hapus Pelajar Berjaya');
- window.location = 'guru_senarai.php'</script>";
+if (mysqli_query($conn, $sql)) {
+    mysqli_close($conn);
+    echo "<script>alert('Hapus Pelajar Berjaya');
+    window.location = 'pelajar_senarai.php'</script>";
+    exit;
+} else {
+    echo "Error deleting record";
+}
  ?>

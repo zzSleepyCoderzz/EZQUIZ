@@ -4,6 +4,8 @@ require 'keselamatan.php';
 include 'header.php';
 
 $idpengguna = $_SESSION['idpengguna'];
+error_reporting(E_ERROR | E_PARSE);
+
  ?>
 
  <!DOCTYPE html>
@@ -14,19 +16,42 @@ $idpengguna = $_SESSION['idpengguna'];
      <?php include 'menu.php'; ?>
    </head>
    <body>
+     <style media="screen">
+     body{
+       background-color: #ECEBE4;
+     }
+
+     #p1{
+       font-family: "Feather Bold";
+       font-size: 40px;
+       margin-top: 20px;
+       margin-bottom: 20px;
+     }
+
+     b{
+       font-family: "DIN Next LT Pro Light";
+     }
+
+     hr{
+       width : 1070px;
+     }
+     </style>
+
      <center>
-       <h2>REKOD MARKAH YANG DICAPAI</h2>
+       <p id = "p1">REKOD MARKAH YANG DICAPAI</p>
      </center>
+     <br>
      <main>
        <table width = "70%" border = "0" align = "center" style="font-size:16px">
          <tr>
-           <td Width = "2%"><b> Bil. </b></td>
+           <td Width = "5%"><b> Bil. </b></td>
            <td Width = "10%"><b> Subjek </b></td>
            <td Width = "38%"><b> Topik </b></td>
            <td Width = "10%"><b> Tarikh </b></td>
            <td Width = "5%"><b> Skor </b></td>
            <td Width = "5%"><b> Markah</b></td>
          </tr>
+         <hr>
          <?php
          $no = 1;
          $data1 = mysqli_query($hubung, "SELECT * FROM perekodan
@@ -45,13 +70,12 @@ $idpengguna = $_SESSION['idpengguna'];
 
            $dataSubjek = mysqli_query($hubung , "SELECT * FROM subjek WHERE
            idsubjek = '$getTopik[idsubjek]' ");
-           $getTopik = mysqli_fetch_array($dataSubjek);
+           $getSubjek = mysqli_fetch_array($dataSubjek);
 
            $bilSoalan = $getBilSoalan['bil'];
            $markah_Topik = $getTopik['markah'];
 
           ?>
-
           <tr style="font-size:14px">
             <td> <?php echo $no; ?></td>
             <td> <?php echo $getSubjek['subjek']; ?></td>
@@ -63,6 +87,8 @@ $idpengguna = $_SESSION['idpengguna'];
           <?php $no++; }?>
        </table>
      </main>
+     <br>
+     <br>
      <center>
        <font style="font-size:14px">
          *Senarai Tamat* <br>

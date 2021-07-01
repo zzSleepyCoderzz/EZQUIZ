@@ -1,6 +1,6 @@
 <?php
 require 'sambung.php';
-require 'keselamatn.php';
+require 'keselamatan.php';
 
 $delguru = $_GET['idpengguna'];
 

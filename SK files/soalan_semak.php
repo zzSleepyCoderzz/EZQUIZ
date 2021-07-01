@@ -4,7 +4,6 @@ session_start();
 $topik_pilihan = $_SESSION['pilih_topik'];
  ?>
 
- <?php session_start(); ?>
 
  <?php
 
@@ -12,7 +11,7 @@ $topik_pilihan = $_SESSION['pilih_topik'];
    $_SESSION['score'] = 0;
  }
 
- if ($POST) {
+ if ($_POST) {
    $idquestion = $_POST['idsoalan'];
    $number = $_POST['number'];
    $selected_choice = $_POST['choice'];
@@ -42,7 +41,7 @@ $topik_pilihan = $_SESSION['pilih_topik'];
      exit();
    }
    else {
-     header("Location : soalan_papar.php?semakan = ".$semakan."&idtopik = ".$topik_pilihan."&n = ".$next."&score = ".$_SESSION['score']);
+     header("Location : soalan_papar.php?semakan=".$semakan."&idtopik=".$topik_pilihan."&n=".$next."&score=".$_SESSION['score']);
    }
  }
   ?>

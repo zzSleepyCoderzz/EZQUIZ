@@ -1,5 +1,5 @@
 <?php
-require 'sanmbung.php';
+require 'sambung.php';
 require 'keselamatan.php';
 include 'header.php';
  ?>
@@ -22,28 +22,109 @@ while ($dataSoalan = mysqli_fetch_array($pilihSoalan)) {
       <?php include 'menu.php'; ?>
     </head>
     <body>
-      <center><h2>KEMASKINI SOALAN</h2></center>
+      <style media="screen">
+      body{
+        background-color: #ECEBE4;
+      }
+
+      p{
+        font-family: "DIN Next LT Pro Light";
+        font-size: 18px;
+        margin : 0;
+        padding-right: 30px;
+      }
+
+      #p1{
+        font-family: "Feather Bold";
+        font-size: 40px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      #paparan_soalan{
+        background-color: #ECEBE4;
+        border-radius: 10px;
+        border: 2px solid black;
+        padding: 10px;
+      }
+
+      #paparan_soalan:focus{
+        outline: none !important;
+        border: 3px solid black;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1)
+      }
+
+      #cipta{
+        background-color: #00ff00;
+        border: none;
+        color: black;
+        padding: 8px 20px;
+        text-align: center;
+        font-family: "Feather Bold";
+        display: inline-block;
+        font-size: 12px;
+        border-radius: 10px;
+        border: 2px solid #00ff00;
+        height: 40px;
+      }
+
+      #cipta:hover{
+        cursor: pointer;
+        background-color: white;
+        color: black;
+      }
+
+      #cipta1{
+        background-color: red;
+        border: none;
+        color: black;
+        padding: 8px 20px;
+        text-align: center;
+        font-family: "Feather Bold";
+        display: inline-block;
+        font-size: 12px;
+        border-radius: 10px;
+        border: 2px solid red;
+        box-shadow: none;
+        margin-left: 10px;
+        height: 40px;
+      }
+
+      #cipta1:hover{
+        cursor: pointer;
+        background-color: white;
+        color: black;
+      }
+      </style>
+      <center><p id = "p1">KEMASKINI SOALAN</p></center>
+      <br>
+      <br>
       <main>
-        <table width = "70%" borde = "0" align = "center">
-          <tr>
+        <table width = "100%" border = "0" align = "center">
+          <tr width = "100%" align = "center">
             <td>
               <form action="save_edit_soalan.php" method="POST" enctype="multipart/form-data">
                 <p>
                   <label>Soalan ke- <?php echo $nom_soalan; ?></label>
                   <input type="text" name="idsoalan" value="<?php echo $soalan_terpilih; ?>" readonly hidden>
                 </p>
+                <br>
                 <p>
                   <label>Soalan</label>
-                  <textarea id="paparan_soalan" name="paparan_soalan" rows="7" cols="105" autofocus> <?php echo $soalan; ?></textarea>
                 </p>
                 <p>
-                  <label> Gambar <br>
+                  <textarea id="paparan_soalan" name="paparan_soalan" rows="7" cols="105" autofocus> <?php echo $soalan; ?></textarea>
+                </p>
+                <br>
+                <br>
+                <p>
+                  <label> Gambar :
                   <?php
                   if ($gambarajah == NULL) {
                     echo "-TIADA-";
                   }
                   else {
-                    echo "<img src='gambar/".$gambarajah"' width = '30%' height = '30%'> ";
+                    echo "<img src = 'gambar/$gambarajah' width='30%' height='30%' alt = '*Gambar*' />";
                   }
                    ?>
                    <input type="text" name="gambarAsal" value="<?php echo $gambarajah; ?>" readonly hidden>
@@ -52,34 +133,39 @@ while ($dataSoalan = mysqli_fetch_array($pilihSoalan)) {
                    </label>
                    <input type="file" name="gambar">
                 </p>
+                <br>
                 <?php
                 $no = 1;
                 $pilihan = mysqli_query($hubung, "SELECT * FROM pilihan
                 AS a INNER JOIN soalan AS q ON q.idsoalan = a.idsoalan WHERE
                 q.idsoalan= $soalan_terpilih");
                 while ($dataPilihan = mysqli_fetch_array($pilihan)) {
+                  if ($dataPilihan['jawapan'] == '1') {
+                    $jawapan =  $dataPilihan['pilihan_jawapan'];
+                  }
                 ?>
                 <p>
-                  Pilihan <?php echo $no; ?>
-                </p>
-                <p>
-                  <?php
-                  if ($dataPilihan['jawapan'] == '1') {
-                    echo "Jawapan :";
-                    echo $dataPilihan['pilihan_jawapan'];
-                  }
-                   ?>
+                  Pilihan <?php echo $no; ?> : <?php echo $dataPilihan['pilihan_jawapan']; ?>
                 </p>
                 <?php $no++; }?>
+                <br>
+                <p> Jawapan : <?php echo $jawapan; ?></p>
+                <br>
                 <p>
-                  <input type="submit" name="submit" value="KEMASKINI">
-                  <input type="button" value="BATAL" onclick="history.back()">
+                  <input id = "cipta"  type="submit" name="submit" value="KEMASKINI">
+                  <input id = "cipta1" type="button" value="BATAL" onclick="history.back()">
                 </p>
+                <br>
+                <br>
               </form>
             </td>
           </tr>
         </table>
       </main>
-      <?php include 'footer.php'; ?>
+      <center>
+        <font style = "font-size:13px; margin-right:20px;"> COPYRIGHT &copy; 2021 </font>
+      </center>
+      <br>
+      <br>
     </body>
   </html>

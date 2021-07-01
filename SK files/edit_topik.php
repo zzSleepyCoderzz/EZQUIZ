@@ -14,18 +14,19 @@ if(isset($_POST['update'])){
   $result = mysqli_query($hubung , "UPDATE topik SET topik = '$topikBaru',
   markah = '$markahBaru', idsubjek = '$idsubjek' WHERE idtopik = '$idtopik'");
 
-  echo "<script>alert('Kenaskini rekod telah berjaya');
-  window.location = 'pilih_subjek.php' </script>";
+  echo "<script>alert('Kemaskini rekod telah berjaya');
+  window.location='pilih_subjek.php'</script>";
 }
   ?>
 
   <?php
 
-$topikEdit = $_GET['idtopik'];
-$pilihTopik = mysqli_query($hubung , "SELECT FROM topik WHERE idtopik = '$topikEdit'");
-while ($dataTopik = mysqli_fetch_array($pilihTopik)) {
-  $pilihSubjek = mqsqli_query($hubung, " SELECT * FROM subjek WHERE
-  idsubjek =$dataTopik['idsubjek']");
+  $topikEdit = $_GET['idtopik'];
+  $pilihTopik = mysqli_query($hubung , "SELECT * FROM topik WHERE idtopik= $topikEdit");
+  while ($dataTopik = mysqli_fetch_array($pilihTopik)) {
+
+  $pilihSubjek = mysqli_query($hubung, " SELECT * FROM subjek WHERE
+  idsubjek = $dataTopik[idsubjek] ");
   $dataSubjek = mysqli_fetch_array($pilihSubjek);
 
   $idTOPIK = $topikEdit;
@@ -43,18 +44,95 @@ while ($dataTopik = mysqli_fetch_array($pilihTopik)) {
        <?php include 'menu.php'; ?>
      </head>
      <body>
-       <center><h2>KEMASKINI TOPIK</h2></center>
+       <style media="screen">
+       body{
+         background-color: #ECEBE4;
+       }
+
+       p{
+         font-family: "DIN Next LT Pro Light";
+         font-size: 18px;
+         margin : 0;
+         margin-top: 5px;
+         padding-right: 30px;
+       }
+
+       #p1{
+         font-family: "Feather Bold";
+         font-size: 40px;
+         margin-top: 20px;
+         margin-bottom: 20px;
+       }
+       label{
+         margin: 0;
+       }
+
+       #inputpilihan{
+         background-color: #ECEBE4;
+         border-radius: 5px;
+         border: 2px solid #A89B9D;
+         height: 20px;
+       }
+
+       #inputpilihan:focus{
+         outline: none !important;
+         border: 3px solid #111D4A;
+       }
+
+       #cipta{
+         background-color: #00ff00;
+         border: none;
+         color: black;
+         padding: 8px 20px;
+         text-align: center;
+         font-family: "Feather Bold";
+         display: inline-block;
+         font-size: 12px;
+         border-radius: 10px;
+         border: 2px solid #00ff00;
+         margin-right: 5px;
+       }
+
+       #cipta:hover{
+         cursor: pointer;
+         background-color: white;
+         color: black;
+       }
+
+       #cipta1{
+         background-color: red;
+         border: none;
+         color: black;
+         padding: 8px 20px;
+         text-align: center;
+         font-family: "Feather Bold";
+         display: inline-block;
+         font-size: 12px;
+         border-radius: 10px;
+         border: 2px solid red;
+         box-shadow: none;
+         margin-left: 5px;
+       }
+
+       #cipta1:hover{
+         cursor: pointer;
+         background-color: white;
+         color: black;
+       }
+       </style>
+       <center><p id = "p1">KEMASKINI TOPIK</p></center>
        <main>
-         <table width = "70%" border="0" align = "center" style="font-size:18px">
+         <table width = "17%" border="0" align = "center" style="font-size:18px; margin-left:650px;">
            <tr>
              <td>
                <form action="edit_topik.php" method="post">
                  <p>
                    <label> Subjek: </label>
                    <select name="idsubjek">
-                     <option selected value="
+                     <option selected value = "
                      <?php echo $dataTopik['idsubjek']; ?>
                      <?php echo $dataSubjek['subjek']; ?>"></option>
+
                      <?php $data2 = mysqli_query($hubung , "SELECT * FROM subjek");
                        while ($info2 = mysqli_fetch_array($data2)) {
                          echo "<option value = '$info2[idsubjek]'>$info2[subjek]</option>";
@@ -63,23 +141,27 @@ while ($dataTopik = mysqli_fetch_array($pilihTopik)) {
                    </select>
                  </p>
                  <p>
-                   <label>Topik :</label>
-                   <input type="text" name="paparan_topik" size = "60%" value="<?php echo $editTOPIK; ?>">
+                   Topik : <input id = "inputpilihan" type="text" name="paparan_topik" size = "20" value="<?php echo $editTOPIK; ?>">
                  </p>
                  <p>
                    <label>Markah :</label>
-                   <input type="text" name="markah" size = "5%" value="<?php echo $editMARKAH; ?>">
+                   <input id = "inputpilihan" type="text" name="markah" size = "5%" value="<?php echo $editMARKAH; ?>">
                  </p>
+                 <br>
+                 <br>
                  <p>
                    <input type="hidden" name="idtopik" value="<?php echo $idTOPIK; ?>">
-                   <input type="submit" name="update" value="KEMASKINI">
-                   <input type="button" name="BATAL" onclick="history.back()">
+                   <input id = "cipta" type="submit" name="update" value="KEMASKINI">
+                   <input id = "cipta1" value="BATAL" onclick="history.back()" size="2" type="button">
                  </p>
                </form>
              </td>
            </tr>
          </table>
+         <br>
+         <center>
+           <p style="margin-right:3px;margin-top:70px;"><font style = "font-size:13px; font-family: 'Times New Roman';"> COPYRIGHT &copy; 2021 </font></p>
+         </center>
        </main>
-       <?php include 'footer.php'; ?>
      </body>
    </html>

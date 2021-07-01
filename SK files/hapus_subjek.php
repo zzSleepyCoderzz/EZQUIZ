@@ -1,14 +1,17 @@
 <?php
-require 'sambung,php';
-require 'keselamtan.php';
+require 'sambung.php';
+require 'keselamatan.php';
+error_reporting(E_ERROR | E_PARSE);
+
 $del_subjek = $_GET['idsubjek'];
 $delete1 = mysqli_query($hubung , "SELECT * FROM subjek AS s
   INNER JOIN topik AS t ON s.idsubjek = t.idsubjek
-  INNER JOIN soalan AS q ON t.idsubjek = q.idtopik
-  INNER JOIN perekodan AS r ON t.idsubjek = r.idtopik
-  INNER JOIN pilihan AS c ON q.idsubjek = c.idsoalan
+  INNER JOIN soalan AS q ON t.idtopik = q.idtopik
+  INNER JOIN perekodan AS r ON t.idtopik = r.idtopik
+  INNER JOIN pilihan AS c ON q.idsoalan = c.idsoalan
   WHERE s.idsubjek = $del_subjek");
 $infoDel = mysqli_fetch_array($delete1);
+
 $delete1 = $del_subjek;
 $delete2 = $infoDel['idtopik'];
 
@@ -19,5 +22,5 @@ $hapuskan4 = mysqli_query($hubung , "DELETE FROM pilihan WHERE idtopik = '$delet
 $hapuskan5 = mysqli_query($hubung , "DELETE FROM perekodan WHERE idtopik = '$delete2' ");
 
 echo "<script>alert('Hapus Subjek berjaya');
-window.location = 'subjek_senarai.php'</script>";
+window.location='subjek_senarai.php'</script>";
 ?>

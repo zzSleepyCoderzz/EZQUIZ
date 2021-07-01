@@ -1,36 +1,59 @@
 <?php
 require 'sambung.php';
-include 'header.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title><?php echo $title; ?></title>
+      <?php include 'header.php'; ?>
   </head>
-  <body> <header>
-    <?php  include 'menu1.php'; ?>
-    <p><center>
-      <font size ="5" face ="verdana" color = "orange"</center> <?php echo $motto2; ?> </font>
-    </center>5
-    </p>
-  </header>
+  <body>
 
-  <table width = '70%' border = 0 align="center">
-    <td width = '20%'>
-<img src="<?php echo $logo; ?>" alt="Error" width="100%" height="100%">
-    </td>
-    <td width = '50%'>
-      <marquee behavior="alternate" direction="left"> SOALAN TERKINI </marquee>
+    <style media="screen">
+    body{
+      background-color: #ECEBE4;
+    }
 
-      <?php include 'soalan_terkini.php' ?>
-    </td>
-    <tr>
-    </tr>
-  </table>
+    div{
+      background-color: #32CD32;
+    }
 
-  <?php include 'footer.php' ?>
+    p{
+      font-family: "DIN Next LT Pro Light";
+      font-size: 18px;
+      margin-bottom: 0;
+    }
 
+    b{
+      font-family: "DIN Next LT Pro Bold";
+    }
+
+    </style>
+
+    <br>
+    <br>
+    <header>
+      <?php  include 'menu1.php'; ?>
+    </header>
+    <br>
+    <br>
+    <br>
+    <table width = '70%' border = 0 align="center">
+      <td width = '50%'>
+        <marquee behavior="alternate" direction="left"><p>SOALAN TERKINI</p> </marquee>
+        <?php include 'soalan_terkini.php' ?>
+      </td>
+    </table>
+    </div>
+    <br>
+    <br>
+    <center>
+      <p style = "font-family: 'Times New Roman' ; font-weight :lighter; font-size : 12px;">*REKOD HANYA 10 YANG TERAWAL*</p>
+    </center>
+  <center style="margin-top:50px;">
+    <?php include 'footer.php' ?>
+  </center>
   </body>
 </html>
