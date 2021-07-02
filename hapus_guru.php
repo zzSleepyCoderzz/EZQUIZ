@@ -2,6 +2,8 @@
 require 'sambung.php';
 require 'keselamatan.php';
 
+error_reporting(E_ERROR | E_PARSE);
+
 $delguru = $_GET['idpengguna'];
 
 $delete1 = mysqli_query($hubung,

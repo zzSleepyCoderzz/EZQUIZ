@@ -1,6 +1,7 @@
 <?php
 require 'sambung.php';
 require 'keselamatan.php';
+
 error_reporting(E_ERROR | E_PARSE);
 
 $del_subjek = $_GET['idsubjek'];

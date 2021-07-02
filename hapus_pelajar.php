@@ -2,6 +2,8 @@
 require 'sambung.php';
 require 'keselamatan.php';
 
+error_reporting(E_ERROR | E_PARSE);
+
 $id = $_GET['idpengguna'];
 
 $dbname = $database;
