@@ -1,8 +1,9 @@
 <?php
 require 'sambung.php';
-require 'keselamatan.php';
 include 'header.php';
  ?>
+
+ <?php session_start() ?>
 
 
 <?php
@@ -94,19 +95,19 @@ $choices = $query2;
              <hr>
              <?php
              if($number == 1){
-               echo "<p style ='font-weight:1000;margin:0;'>Sila baca soalan dengan teliti</p>";
+               echo "<p style ='font-weight:1000;margin:0;margin-bottom:5px;'>Sila Baca Semua Soalan Dengan Teliti</p>";
              }
              else{
                $jawapan = $_GET['semakan'];
+               $tempcount = $number-1;
                if ($jawapan == "TEPAT") {
-                 echo "Tahniah, jawapan bagi soalan";
-                 echo $number-1;
-                 echo " adalah <font color = 'blue' size = '+3'> TEPAT </font>";
+                 echo "<p style ='font-weight:1000;margin:0;margin-bottom:5px;'>Tahniah, jawapan bagi soalan $tempcount</p>";
+                 echo " <p style ='font-weight:1000;margin:0;'>adalah <font color = 'blue' size = '+1'> TEPAT </font></p>";
                }
              else {
-                 echo "Maaf, jawapan bagi soalan";
-                 echo $number-1;
-                 echo " adalah <font color = 'red' size = '+3'> SALAH </font>";
+                 echo "<p style ='font-weight:1000;margin:0;margin-bottom:5px;'>Maaf, jawapan bagi soalan </>";
+                 echo $tempcount;
+                 echo " adalah <font color = 'red' size = '+1'> SALAH </font>";
                }
              }
               ?>
@@ -127,10 +128,17 @@ $choices = $query2;
                width = '30%' height = '30%'>";
              }
               ?>
+              <br>
+              <br>
+              <p id = "p3"> Pilihan: </p>
               <form action="soalan_semak.php" method="post">
+                <div style="margin-right:300px;">
                   <?php while ($row = mysqli_fetch_assoc($choices)): ?>
-                  <input  name = "choice" type = "radio" value="<?php echo $row['idpilihan']; ?>" required> <?php echo $row['pilihan_jawapan']; ?>
-                <?php endwhile; ?>
+                  <br><input name = "choice" type = "radio" required value="<?php echo $row['idpilihan']; ?>" >
+                  <?php echo $row['pilihan_jawapan']; ?>
+                  <?php endwhile; ?>
+                </div>
+
                 <br>
                 <br>
                 <input id = "pilih" type="submit" value="PILIH">

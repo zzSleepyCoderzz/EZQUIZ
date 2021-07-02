@@ -4,6 +4,7 @@ session_start();
 $topik_pilihan = $_SESSION['pilih_topik'];
  ?>
 
+ <?php session_start()?>
 
  <?php
 
@@ -41,7 +42,7 @@ $topik_pilihan = $_SESSION['pilih_topik'];
      exit();
    }
    else {
-     header("Location : soalan_papar.php?semakan=".$semakan."&idtopik=".$topik_pilihan."&n=".$next."&score=".$_SESSION['score']);
+     header("Location: soalan_papar.php?semakan=".$semakan."&idtopik=".$topik_pilihan."&n=".$next."&score=".$_SESSION['score']); 
    }
  }
   ?>
