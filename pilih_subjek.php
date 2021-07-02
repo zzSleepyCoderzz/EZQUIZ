@@ -4,6 +4,8 @@ require 'keselamatan.php';
 include 'header.php';
  ?>
 
+
+
  <!DOCTYPE html>
  <html lang="en" dir="ltr">
    <head>
@@ -59,12 +61,36 @@ include 'header.php';
        font-family: "DIN Next LT Pro Bold";
      }
 
+     #button1{
+       background-color: #3C91E6;
+       border: none;
+       color: white;
+       padding: 8px 20px;
+       text-align: center;
+       font-family: "Feather Bold";
+       display: inline-block;
+       font-size: 12px;
+       border-radius: 10px;
+       border: 2px solid #3C91E6;
+       margin: 0;
+       box-shadow: none;
+       margin-left: 300px;
+     }
+
+     #button1:hover{
+       cursor: pointer;
+       background-color: white;
+       color: black;
+     }
+
      </style>
      <center>
        <p id = "p1">SENARAI SUBJEK</p>
      </center>
      <br>
+     <br>
      <main>
+       <br>
        <table width = "60%" border = "0" align = center style="font-size:16px;font-family:DIN Next LT Pro Light;">
          <tr>
            <td width = "5%"><b> Bil. </b></td>

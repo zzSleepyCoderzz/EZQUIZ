@@ -83,6 +83,11 @@ $choices = $query2;
          box-shadow: 0 5px #666;
          transform: translateY(4px);
        }
+
+       #div1{
+         align-items: right;
+         height: 50px;
+       }
        </style>
        <center>
        <p id = "p1">Subjek: <?php echo $getSoalan['subjek']; ?></p>
@@ -132,13 +137,15 @@ $choices = $query2;
               <br>
               <p id = "p3"> Pilihan: </p>
               <form action="soalan_semak.php" method="post">
-                <div style="margin-right:300px;">
+                <div id = "div1">
                   <?php while ($row = mysqli_fetch_assoc($choices)): ?>
-                  <br><input name = "choice" type = "radio" required value="<?php echo $row['idpilihan']; ?>" >
+                    <br>
+                  <input name = "choice" type = "radio" required value="<?php echo $row['idpilihan']; ?>" >
                   <?php echo $row['pilihan_jawapan']; ?>
                   <?php endwhile; ?>
                 </div>
-
+                <br>
+                <br>
                 <br>
                 <br>
                 <input id = "pilih" type="submit" value="PILIH">

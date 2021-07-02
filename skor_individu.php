@@ -47,7 +47,7 @@ error_reporting(E_ERROR | E_PARSE);
            <td Width = "5%"><b> Bil. </b></td>
            <td Width = "10%"><b> Subjek </b></td>
            <td Width = "38%"><b> Topik </b></td>
-           <td Width = "10%"><b> Tarikh </b></td>
+           <td Width = "14%"><b> Tarikh </b></td>
            <td Width = "5%"><b> Skor </b></td>
            <td Width = "5%"><b> Markah</b></td>
          </tr>

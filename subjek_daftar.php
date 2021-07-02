@@ -73,6 +73,28 @@ $next = $total+1;
        color: black;
      }
 
+     #daftar1{
+       background-color: red;
+       border: none;
+       color: black;
+       padding: 8px 20px;
+       text-align: center;
+       font-family: "Feather Bold";
+       display: inline-block;
+       font-size: 12px;
+       border-radius: 10px;
+       border: 2px solid red;
+       margin-right: 5px;
+       height: 40px;
+       width: 100px;
+     }
+
+     #daftar1:hover{
+       cursor: pointer;
+       background-color: white;
+       color: black;
+     }
+
      #inputsubjek{
        background-color: #ECEBE4;
        border-radius: 5px;
@@ -103,6 +125,7 @@ $next = $total+1;
                <br>
                <p>
                   <input id = "daftar" type="submit" name="submit" value="DAFTAR">
+                  <input id = "daftar1" onclick="window.history.back()" value="PULANG">
                </p>
              </form>
        <center>

@@ -6,8 +6,8 @@
     font-family: "DIN Next LT Pro Light";
   }
 </style>
-<table width = "100%" border = "0" align = "center">
-  <tr style="font-size:14px">
+<table width = "100%" border = "0" align = "center" >
+  <tr style="font-size:16px">
     <td width = "5%"><b>Bil.</b></td>
     <td width = "30%"><b>Subjek.</b></td>
     <td width = "57%"><b>Topik.</b></td>
@@ -23,7 +23,7 @@
     $infoSubjek = mysqli_fetch_array($subjek);
    ?>
 
-   <tr style="font-size:14px">
+   <tr style="font-size:16px">
      <td><?php echo $no; ?></td>
      <td><?php echo $infoSubjek['subjek']; ?></td>
      <td><?php echo $infoTopik['topik']; ?></td>
