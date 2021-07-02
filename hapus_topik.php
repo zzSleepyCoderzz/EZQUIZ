@@ -17,6 +17,6 @@ $result2 = mysqli_query($hubung , "DELETE FROM soalan WHERE idtopik = '$topik'")
 $result3 = mysqli_query($hubung , "DELETE FROM pilihan WHERE idsoalan = '$dataDel[idsoalan]'");
 $result4 = mysqli_query($hubung , "DELETE FROM perekodan WHERE idtopik = '$topik' ");
 
-echo "<script>alert('Hapus Subjek Berjaya');
+echo "<script>alert('Hapus Topik Berjaya');
 window.location='pilih_subjek.php'</script>";
  ?>

@@ -42,7 +42,7 @@ error_reporting(E_ERROR | E_PARSE);
      </center>
      <br>
      <main>
-       <table width = "70%" border = "0" align = "center" style="font-size:16px">
+       <table width = "70%" border = "0" align = "center" style="font-size:16px;font-family:DIN Next LT Pro Light;">
          <tr>
            <td Width = "5%"><b> Bil. </b></td>
            <td Width = "10%"><b> Subjek </b></td>
@@ -76,7 +76,7 @@ error_reporting(E_ERROR | E_PARSE);
            $markah_Topik = $getTopik['markah'];
 
           ?>
-          <tr style="font-size:14px">
+          <tr>
             <td> <?php echo $no; ?></td>
             <td> <?php echo $getSubjek['subjek']; ?></td>
             <td> <?php echo $getTopik['topik']; ?></td>

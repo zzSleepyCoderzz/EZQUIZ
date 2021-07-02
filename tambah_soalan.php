@@ -12,8 +12,7 @@ if(isset($_POST['submit'])){
   else {
     $gambar = $_FILES['gambar']['name'];
     $imageArr = explode('.',$gambar);
-    $random = rand(10000 , 99999);
-    $newnamepic = $imageArr[0].$random.'.'.$imageArr[1];
+    $newnamepic = $imageArr[0].'.'.$imageArr[1];
     $uploadPath = "gambar/".$newnamepic;
     $isUploaded = move_uploaded_file($_FILES["gambar"]["tmp_name"],$uploadPath);
   }

@@ -57,7 +57,7 @@ include 'header.php';
      <center><p id = "p1">SENARAI SUBJEK</p></center>
      <br>
      <main>
-       <table style="font-family: DIN Next LT Pro Light;"width = "70%" border = "0" align = "center" style="font-size:16px">
+       <table style="font-family: DIN Next LT Pro Light;font-size:16px;" width = "70%" border = "0" align = "center">
          <tr>
            <td width = "5%"><b> Bil. </b></td>
            <td width = "50%"><b> Subjek </b></td>

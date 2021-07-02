@@ -17,7 +17,7 @@ if (isset($_POST["import"])) {
 
       else {
         echo "<script>alert('Pindah naik fail CSV berjaya');
-        window.location = 'senarai_pelajar.php' </script>";
+        window.location = 'pelajar_senarai.php' </script>";
       }
     }
     fclose($file);

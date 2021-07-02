@@ -106,7 +106,7 @@ include 'header.php';
             <td><p id = "td1"> <?php echo $info1['password']; ?></p></td>
             <td><p id = "td1"> <?php echo $info1['nama']; ?></p></td>
             <td><p id = "td1"> <?php echo $info1['jantina']; ?></p></td>
-            <td><a href = "hapus_pelajar.php?idpengguna=<?php echo $info1['idpengguna'];  ?>" onclick="return confirm ('AWAS!, Semua rekod yang berkaitan akan dihapuskan , Anda Pasti?')">
+            <td><a href = "hapus_pelajar.php?idpengguna=<?php echo preg_replace('/[\x80-\xFF]/', '', $info1['idpengguna']);?>" onclick="return confirm ('AWAS!, Semua rekod yang berkaitan akan dihapuskan , Anda Pasti?')">
             <button id = "delete">HAPUS</button></td>
           </tr>
           <?php $no++ ; }?>

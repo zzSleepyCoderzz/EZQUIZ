@@ -3,6 +3,7 @@ require 'sambung.php';
 require 'keselamatan.php';
 
 $id = $_GET['idpengguna'];
+
 $dbname = $database;
 $conn = mysqli_connect("localhost", "root", "", $dbname);
 if (!$conn) {

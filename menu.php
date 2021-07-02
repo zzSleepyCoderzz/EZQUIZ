@@ -72,7 +72,7 @@ if ($_SESSION['level'] == "ADMIN") {
       background-color: #ECEBE4;
       justify-content: space-between;
       display: flex;
-      width: 50%;
+      width: 60%;
     }
 
     </style>
@@ -83,6 +83,7 @@ if ($_SESSION['level'] == "ADMIN") {
       <a href="pilih_subjek.php"><button class = "button">KUIZ</button></a>
       <a href="prestasi_topik.php"><button class = "button">PRESTASI</button></a>
       <a href="import_daftar.php"><button class = "button">IMPORT</button></a>
+      <a href="pelajar_senarai.php"><button class = "button">SENARAI PELAJAR</button></a>
       <a href="logout.php"><button class = "button">LOG OUT</button></a>
     </div>
     <br>

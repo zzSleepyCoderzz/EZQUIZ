@@ -22,7 +22,7 @@ if(isset($_POST['update'])){
   <?php
 
   $topikEdit = $_GET['idtopik'];
-  $pilihTopik = mysqli_query($hubung , "SELECT * FROM topik WHERE idtopik= $topikEdit");
+  $pilihTopik = mysqli_query($hubung , "SELECT * FROM topik WHERE idtopik = $topikEdit");
   while ($dataTopik = mysqli_fetch_array($pilihTopik)) {
 
   $pilihSubjek = mysqli_query($hubung, " SELECT * FROM subjek WHERE
