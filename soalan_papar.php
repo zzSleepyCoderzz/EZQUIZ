@@ -98,6 +98,8 @@ $choices = $query2;
          <tr>
            <td align = "center">
              <hr>
+             <audio id="mySound" src="correct(1).mp3"></audio>
+             <audio id="mySound1" src="wrong(1).mp3"></audio>
              <?php
              if($number == 1){
                echo "<p style ='font-weight:1000;margin:0;margin-bottom:5px;'>Sila Baca Semua Soalan Dengan Teliti</p>";
@@ -108,11 +110,13 @@ $choices = $query2;
                if ($jawapan == "TEPAT") {
                  echo "<p style ='font-weight:1000;margin:0;margin-bottom:5px;'>Tahniah, jawapan bagi soalan $tempcount</p>";
                  echo " <p style ='font-weight:1000;margin:0;'>adalah <font color = 'blue' size = '+1'> TEPAT </font></p>";
+                 echo "<script>document.getElementById('mySound').play();</script>";
                }
              else {
                  echo "<p style ='font-weight:1000;margin:0;margin-bottom:5px;'>Maaf, jawapan bagi soalan </>";
                  echo $tempcount;
                  echo " adalah <font color = 'red' size = '+1'> SALAH </font>";
+                 echo "<script>document.getElementById('mySound1').play();</script>";
                }
              }
               ?>
@@ -140,7 +144,7 @@ $choices = $query2;
                 <div id = "div1">
                   <?php while ($row = mysqli_fetch_assoc($choices)): ?>
                     <br>
-                  <input name = "choice" type = "radio" required value="<?php echo $row['idpilihan']; ?>" >
+                  <input style="font-family:DIN Next LT Pro Light" name = "choice" type = "radio" required value="<?php echo $row['idpilihan']; ?>" >
                   <?php echo $row['pilihan_jawapan']; ?>
                   <?php endwhile; ?>
                 </div>
