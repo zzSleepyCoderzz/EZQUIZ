@@ -1,11 +1,12 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
 require 'sambung.php';
 require 'keselamatan.php';
 
 if(isset($_POST['submit'])){
   $picAsal = $_POST['gambarAsal'];
   if ($_FILES['gambar']['name'] == NULL) {
-    $newnamepic = $picasal;
+    $newnamepic = $picAsal;
   }
   else {
     $gambar = $_FILES['gambar']['name'];
