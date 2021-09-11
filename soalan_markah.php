@@ -117,7 +117,7 @@ include 'header.php';
             <td>
               <p id = "p3">Tahniah! Anda telah selesai menjawab semua soalan.</p>
               <br>
-              <p id = "p3">Bilangan Betul:<div id = "p2"><?php echo $_SESSION['score']; ?></div></p>
+              <p id = "p3">Bilangan Betul:<div id = "p2"><?php echo $_SESSION['score']; ?>/<?php echo $_GET['jum']; ?></div></p>
             </td>
           </tr>
           <tr align = "center">

@@ -38,7 +38,7 @@ $topik_pilihan = $_SESSION['pilih_topik'];
    }
 
    if($number == $total){
-     header("Location: soalan_markah.php");
+     header("Location: soalan_markah.php?jum=".$next-1);
      exit();
    }
    else {

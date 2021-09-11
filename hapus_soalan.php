@@ -9,5 +9,5 @@ $hapuskan1 = mysqli_query($hubung, "DELETE FROM soalan WHERE idsoalan = '$soalan
 $hapuskan2 = mysqli_query($hubung, "DELETE FROM pilihan WHERE idsoalan = '$soalanDel' ");
 
 echo "<script>alert('Hapus soalan berjaya');
-window.location='pilih_subjek.php'</script>";
+window.location='papar_soalan.php'</script>";
  ?>
