@@ -48,7 +48,7 @@ include 'sambung.php';
   <center id="header1">
       <button id="changecolor" onclick="color();increment();">Warna</button>
       <br>
-      <img id="logo" src="logo.png" alt="logo" width="100px" height="60px">
+      <a href="index2.php"><img id="logo" src="logo.png" alt="logo" width="100px" height="60px"></a>
       <br>
       <p>
         <font style="margin-left:20px;" size="+5" color="white" font face="Feather Bold">
