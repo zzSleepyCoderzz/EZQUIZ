@@ -1,6 +1,6 @@
 <?php
 require 'sambung.php';
-include 'header.php';
+include 'header1.php';
 
 if (isset($_POST['idpengguna'])){
   $idpengguna = $_POST['idpengguna'];

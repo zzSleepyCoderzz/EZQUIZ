@@ -7,7 +7,7 @@ require 'sambung.php';
   <head>
     <meta charset="utf-8">
     <title><?php echo $title; ?></title>
-      <?php include 'header.php'; ?>
+      <?php include 'header1.php'; ?>
   </head>
   <body>
 

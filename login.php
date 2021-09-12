@@ -1,6 +1,6 @@
 <?php
 require 'sambung.php';
-include 'header.php';
+include 'header1.php';
  ?>
 
  <!DOCTYPE html>
