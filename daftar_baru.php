@@ -92,10 +92,10 @@ if (isset($_POST['idpengguna'])){
       border: 0;
       border-bottom: 2px solid grey;
       border-radius: 2px;
-      height: 20px;
+      height: 30px;
       background-image: url("id.png");
       background-repeat: no-repeat;
-      background-size: 25px;
+      background-size: 30px;
       padding-left: 30px;
     }
 
@@ -104,7 +104,7 @@ if (isset($_POST['idpengguna'])){
       border: 0;
       border-bottom: 3px solid #555;
       border-radius: 3px;
-      height: 20px;
+      height: 30px;
     }
 
     #inputpin {
@@ -112,10 +112,10 @@ if (isset($_POST['idpengguna'])){
       border: 0;
       border-bottom: 2px solid grey;
       border-radius: 2px;
-      height: 20px;
+      height: 30px;
       background-image: url("pin.png");
       background-repeat: no-repeat;
-      background-size: 25px;
+      background-size: 30px;
       padding-left: 30px;
     }
 
@@ -124,7 +124,7 @@ if (isset($_POST['idpengguna'])){
       border: 0;
       border-bottom: 3px solid #555;
       border-radius: 3px;
-      height: 20px;
+      height: 30px;
     }
 
     #inputname {
@@ -132,10 +132,10 @@ if (isset($_POST['idpengguna'])){
       border: 0;
       border-bottom: 2px solid grey;
       border-radius: 2px;
-      height: 20px;
+      height: 30px;
       background-image: url("name.png");
       background-repeat: no-repeat;
-      background-size: 25px;
+      background-size: 30px;
       padding-left: 30px;
     }
 
@@ -144,7 +144,7 @@ if (isset($_POST['idpengguna'])){
       border: 0;
       border-bottom: 3px solid #555;
       border-radius: 3px;
-      height: 20px;
+      height: 30px;
     }
 
     .dropdown {

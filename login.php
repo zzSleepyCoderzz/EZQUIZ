@@ -68,10 +68,10 @@ include 'header1.php';
        border:0;
        border-bottom:  2px solid grey;
        border-radius: 2px;
-       height: 20px;
+       height: 30px;
        background-image: url("id.png");
        background-repeat: no-repeat;
-       background-size: 25px;
+       background-size: 30px;
        padding-left: 30px;
      }
      #inputkp:focus{
@@ -79,7 +79,7 @@ include 'header1.php';
        border: 0;
        border-bottom: 3px solid #555;
        border-radius: 3px;
-       height: 20px;
+       height: 30px;
      }
 
      #inputpin{
@@ -87,10 +87,10 @@ include 'header1.php';
        border:0;
        border-bottom:  2px solid grey;
        border-radius: 2px;
-       height: 20px;
+       height: 30px;
        background-image: url("pin.png");
        background-repeat: no-repeat;
-       background-size: 25px;
+       background-size: 30px;
        padding-left: 30px;
      }
      #inputpin:focus{
@@ -98,7 +98,7 @@ include 'header1.php';
        border: 0;
        border-bottom: 3px solid #555;
        border-radius: 3px;
-       height: 20px;
+       height: 30px;
      }
 
      h5{
@@ -122,7 +122,7 @@ include 'header1.php';
                </div>
                <div id = "div2">
                  <p><input id = "inputkp" onblur="checklength(this)" type="text" name="idpengguna"
-                 placeholder="Tanpa tanda -" maxlength="12" size="30" onkeypress="return event.charCode >= 48 && event.charCode <= 57" ></p>
+                 placeholder ="Tanpa tanda -" maxlength="12" size="30" onkeypress="return event.charCode >= 48 && event.charCode <= 57" ></p>
                </div>
 
              <script type="text/javascript">
