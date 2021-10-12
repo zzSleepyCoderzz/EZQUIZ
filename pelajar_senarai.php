@@ -23,112 +23,50 @@ if (isset($_POST['SUBMIT'])) {
 
   <!--Permulaan Hasil Carian-->
   <hr>
-  <center>
-    <h2 id="h2">HASIL CARIAN :</h2>
-  </center>
-  <table width="70%" border="0" align="center">
-    <tr>
-      <td><b>Bil.</b></td>
-      <td><b>ID Pelajar</b></td>
-      <td><b>Password</b></td>
-      <td><b>Nama Pelajar</b></td>
-      <td><b>Jantina</b></td>
-    </tr>
-    <?php
+  <h2 id="h2">HASIL CARIAN :</h2>
+  <?php
 
-    $no = 1;
-    $data1 = mysqli_query($hubung, "SELECT * FROM pengguna
+  $no = 1;
+  $data1 = mysqli_query($hubung, "SELECT * FROM pengguna
 WHERE idpengguna='$jumpakp'
 ORDER BY nama ASC");
+
+  if (mysqli_num_rows($data1) != 0) {
     while ($info1 = mysqli_fetch_array($data1)) {
-    ?>
-      <tr>
-        <td width="5%">
-          <p id="td1"><?php echo $no; ?></p>
-        </td>
-        <td width="15%">
-          <p id="td1"><?php echo $info1['idpengguna']; ?></p>
-        </td>
-        <td width="20%">
-          <p id="td1"><?php echo $info1['password']; ?></p>
-        </td>
-        <td width="30%">
-          <p id="td1"><?php echo $info1['nama']; ?></p>
-        </td>
-        <td width="20%">
-          <p id="td1"><?php echo $info1['jantina']; ?></p>
-        </td>
-      </tr>
-    <?php $no++;
-    } ?>
-  </table>
-
-  <!--Tamat Hasil Carian-->
-
-  <br>
-  <main>
-    <table width="70%" border="0" align="center" style='font-size:16px'>
-      <tr>
-        <td width="5%"><b> Bil. </b></td>
-        <td width="15%"><b> ID Pelajar </b></td>
-        <td width="20%"><b> Password </b></td>
-        <td width="30%"><b> Nama Pelajar </b></td>
-        <td width="10%"><b> Jantina </b></td>
-        <td width="10%"><b> Tindakan </b></td>
-      </tr>
-      <hr>
-      <?php
-      $no = 1;
-      $data1 = mysqli_query($hubung, "SELECT * FROM pengguna WHERE aras = 'PELAJAR' ORDER BY nama ASC");
-      while ($info1 = mysqli_fetch_array($data1)) {
-      ?>
+  ?>
+      <table width="70%" border="0" align="center">
+        <tr>
+          <td width="5%"><b>Bil.</b></td>
+          <td width="15%"><b>ID Pelajar</b></td>
+          <td width="20%"><b>Password</b></td>
+          <td width="30%"><b>Nama Pelajar</b></td>
+          <td width="20%"><b>Jantina</b></td>
+        </tr>
         <tr>
           <td>
-            <p id="td1"> <?php echo $no; ?> </p>
+            <p id="td1"><?php echo $no; ?></p>
           </td>
           <td>
-            <p id="td1"> <?php echo $info1['idpengguna']; ?></p>
+            <p id="td1"><?php echo $info1['idpengguna']; ?></p>
           </td>
           <td>
-            <p id="td1"> <?php echo $info1['password']; ?></p>
+            <p id="td1"><?php echo $info1['password']; ?></p>
           </td>
           <td>
-            <p id="td1"> <?php echo $info1['nama']; ?></p>
+            <p id="td1"><?php echo $info1['nama']; ?></p>
           </td>
           <td>
-            <p id="td1"> <?php echo $info1['jantina']; ?></p>
+            <p id="td1"><?php echo $info1['jantina']; ?></p>
           </td>
-          <td><a href="hapus_pelajar.php?idpengguna=<?php echo preg_replace('/[\x80-\xFF]/', '', $info1['idpengguna']); ?>" onclick="return confirm ('AWAS!, Semua rekod yang berkaitan akan dihapuskan , Anda Pasti?')">
-              <button id="delete">HAPUS</button></td>
         </tr>
       <?php $no++;
-      } ?>
-    </table>
-  </main>
-  <br>
-  <br>
-  <center>
-    <font style='font-size:14px'> *SENARAI TAMAT* <br> Jumlah Rekod : <?php echo $no - 1; ?> </font>
-  </center>
-  <center style="margin-top:60px;">
-    <?php include 'footer.php'; ?>
-    <center>
+    }
+  } else { ?>
+      <p id="rekoderrmsg">Tiada Rekod</p>
+    <?php } ?>
+      </table>
 
-      <!--Sekiranya Tiada Carian-->
-    <?php } else { ?>
-
-      <?php include 'menu.php'; ?>
-
-      <center>
-        <p id="p1"> SENARAI PELAJAR BERDAFTAR</p>
-      </center>
-      <div id="carian">
-        <form method="post">
-          <b>CARIAN NO.K/P:</b>
-          <input type="text" name="carikp" maxLength='12' autofocus>
-          <input id="butangcarian" type="submit" name="SUBMIT" value="CARI">
-        </form>
-      </div>
+      <!--Tamat Hasil Carian-->
 
       <br>
       <main>
@@ -178,140 +116,211 @@ ORDER BY nama ASC");
       <center style="margin-top:60px;">
         <?php include 'footer.php'; ?>
         <center>
-        <?php } ?>
 
-        <!DOCTYPE html>
-        <html lang="en" dir="ltr">
+          <!--Sekiranya Tiada Carian-->
+        <?php } else { ?>
 
-        <head>
-          <meta charset="utf-8">
-          <title></title>
-        </head>
+          <?php include 'menu.php'; ?>
 
-        <body>
-          <style media="screen">
-            body {
-              background-color: #ECEBE4;
-            }
+          <center>
+            <p id="p1"> SENARAI PELAJAR BERDAFTAR</p>
+          </center>
+          <div id="carian">
+            <form method="post">
+              <b>CARIAN NO.K/P:</b>
+              <input type="text" name="carikp" maxLength='12' autofocus>
+              <input id="butangcarian" type="submit" name="SUBMIT" value="CARI">
+            </form>
+          </div>
 
-            p {
-              font-family: "DIN Next LT Pro Light";
-              font-size: 25px;
-              margin: 0;
-              padding-right: 30px;
-            }
+          <br>
+          <main>
+            <table width="70%" border="0" align="center" style='font-size:16px'>
+              <tr>
+                <td width="5%"><b> Bil. </b></td>
+                <td width="15%"><b> ID Pelajar </b></td>
+                <td width="20%"><b> Password </b></td>
+                <td width="30%"><b> Nama Pelajar </b></td>
+                <td width="10%"><b> Jantina </b></td>
+                <td width="10%"><b> Tindakan </b></td>
+              </tr>
+              <hr>
+              <?php
+              $no = 1;
+              $data1 = mysqli_query($hubung, "SELECT * FROM pengguna WHERE aras = 'PELAJAR' ORDER BY nama ASC");
+              while ($info1 = mysqli_fetch_array($data1)) {
+              ?>
+                <tr>
+                  <td>
+                    <p id="td1"> <?php echo $no; ?> </p>
+                  </td>
+                  <td>
+                    <p id="td1"> <?php echo $info1['idpengguna']; ?></p>
+                  </td>
+                  <td>
+                    <p id="td1"> <?php echo $info1['password']; ?></p>
+                  </td>
+                  <td>
+                    <p id="td1"> <?php echo $info1['nama']; ?></p>
+                  </td>
+                  <td>
+                    <p id="td1"> <?php echo $info1['jantina']; ?></p>
+                  </td>
+                  <td><a href="hapus_pelajar.php?idpengguna=<?php echo preg_replace('/[\x80-\xFF]/', '', $info1['idpengguna']); ?>" onclick="return confirm ('AWAS!, Semua rekod yang berkaitan akan dihapuskan , Anda Pasti?')">
+                      <button id="delete">HAPUS</button></td>
+                </tr>
+              <?php $no++;
+              } ?>
+            </table>
+          </main>
+          <br>
+          <br>
+          <center>
+            <font style='font-size:14px'> *SENARAI TAMAT* <br> Jumlah Rekod : <?php echo $no - 1; ?> </font>
+          </center>
+          <center style="margin-top:60px;">
+            <?php include 'footer.php'; ?>
+            <center>
+            <?php } ?>
 
-            #p1 {
-              font-family: "Feather Bold";
-              font-size: 40px;
-              margin-top: 20px;
-              margin-bottom: 20px;
-              margin-left: 20px;
-            }
+            <!DOCTYPE html>
+            <html lang="en" dir="ltr">
 
-            #div1 {
-              background-color: #ECEBE4;
-              justify-content: space-between;
-              display: flex;
-              width: 16%;
-            }
+            <head>
+              <meta charset="utf-8">
+              <title></title>
+            </head>
 
-            #div2 {
-              padding-left: 300px;
-            }
+            <body>
+              <style media="screen">
+                body {
+                  background-color: #ECEBE4;
+                }
 
-            #div3 {
-              padding-left: 300px;
-            }
+                p {
+                  font-family: "DIN Next LT Pro Light";
+                  font-size: 25px;
+                  margin: 0;
+                  padding-right: 30px;
+                }
 
-            #delete {
-              background-color: red;
-              border: none;
-              color: white;
-              padding: 8px 20px;
-              text-align: center;
-              font-family: "Feather Bold";
-              display: inline-block;
-              font-size: 12px;
-              border-radius: 10px;
-              border: 2px solid red;
-              margin: 0;
-            }
+                #p1 {
+                  font-family: "Feather Bold";
+                  font-size: 40px;
+                  margin-top: 20px;
+                  margin-bottom: 20px;
+                  margin-left: 20px;
+                }
 
-            #delete:hover {
-              cursor: pointer;
-              background-color: white;
-              color: black;
-              box-shadow: none;
-            }
+                #div1 {
+                  background-color: #ECEBE4;
+                  justify-content: space-between;
+                  display: flex;
+                  width: 16%;
+                }
 
-            b {
-              font-family: "DIN Next LT Pro Bold";
-            }
+                #div2 {
+                  padding-left: 300px;
+                }
 
-            hr {
-              width: 1070px;
-            }
+                #div3 {
+                  padding-left: 300px;
+                }
 
-            #td1 {
-              font-family: "DIN Next LT Pro Light";
-              margin: 0;
-              font-size: 16px;
-            }
+                #delete {
+                  background-color: red;
+                  border: none;
+                  color: white;
+                  padding: 8px 20px;
+                  text-align: center;
+                  font-family: "Feather Bold";
+                  display: inline-block;
+                  font-size: 12px;
+                  border-radius: 10px;
+                  border: 2px solid red;
+                  margin: 0;
+                }
 
-            #button1 {
-              background-color: #3C91E6;
-              border: none;
-              color: white;
-              padding: 8px 20px;
-              text-align: center;
-              font-family: "Feather Bold";
-              display: inline-block;
-              font-size: 12px;
-              border-radius: 10px;
-              border: 2px solid #3C91E6;
-              margin: 0;
-              box-shadow: none;
-              margin-left: 230px;
-            }
+                #delete:hover {
+                  cursor: pointer;
+                  background-color: white;
+                  color: black;
+                  box-shadow: none;
+                }
 
-            #button1:hover {
-              cursor: pointer;
-              background-color: white;
-              color: black;
-            }
+                b {
+                  font-family: "DIN Next LT Pro Bold";
+                }
 
-            #carian {
-              padding-left: 231px;
-              margin: 0;
-              outline: none;
-            }
+                hr {
+                  width: 1070px;
+                }
 
-            #h2 {
-              font-family: "Feather Bold";
-              font-size: 25px;
-              padding-right: 880px;
-            }
+                #td1 {
+                  font-family: "DIN Next LT Pro Light";
+                  margin: 0;
+                  font-size: 16px;
+                }
 
-            #butangcarian {
-              background-color: black;
-              border: none;
-              color: white;
-              padding: 5px 10px;
-              text-align: center;
-              font-family: "Feather Bold";
-              display: inline-block;
-              font-size: 12px;
-              border-radius: 10px;
-              border-color: white;
-              border: 2px solid black;
-            }
+                #button1 {
+                  background-color: #3C91E6;
+                  border: none;
+                  color: white;
+                  padding: 8px 20px;
+                  text-align: center;
+                  font-family: "Feather Bold";
+                  display: inline-block;
+                  font-size: 12px;
+                  border-radius: 10px;
+                  border: 2px solid #3C91E6;
+                  margin: 0;
+                  box-shadow: none;
+                  margin-left: 230px;
+                }
 
-            #butangcarian:hover {
-              cursor: pointer;
-              background-color: white;
-              color: black;
-            }
-          </style>
-        </body>
-        </html>
+                #button1:hover {
+                  cursor: pointer;
+                  background-color: white;
+                  color: black;
+                }
+
+                #carian {
+                  padding-left: 231px;
+                  margin: 0;
+                  outline: none;
+                }
+
+                #h2 {
+                  font-family: "Feather Bold";
+                  font-size: 25px;
+                  margin-left: 31vh;
+                }
+
+                #butangcarian {
+                  background-color: black;
+                  border: none;
+                  color: white;
+                  padding: 5px 10px;
+                  text-align: center;
+                  font-family: "Feather Bold";
+                  display: inline-block;
+                  font-size: 12px;
+                  border-radius: 10px;
+                  border-color: white;
+                  border: 2px solid black;
+                }
+
+                #butangcarian:hover {
+                  cursor: pointer;
+                  background-color: white;
+                  color: black;
+                }
+
+                #rekoderrmsg {
+                  margin-left: 31vh;
+                  font-size: 20px;
+                }
+              </style>
+            </body>
+
+            </html>

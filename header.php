@@ -11,6 +11,7 @@ include 'sambung.php';
 </head>
 
 <body style="margin:0;" onload = "javascript:color();" >
+
   <style media="screen">
     #changecolor {
       background: linear-gradient(to bottom right, pink, blue, lightblue);
@@ -18,12 +19,12 @@ include 'sambung.php';
       width: 150px;
       height: 50px;
       border-radius: 20px;
-      margin-top: 20px;
-      margin-right: 20px;
+      margin-top: 4vh;
+      margin-right: 3vh;
       float: right;
       width: 90px;
-      padding-left: 3px;
-      padding-right: 3px;
+      padding-left: 1vh;
+      padding-right: 1vh;
       border: none;
       color: white;
       font-family: "Feather Bold";
@@ -35,13 +36,13 @@ include 'sambung.php';
     }
 
     #header1 {
-      height: 200px;
+      height: 30vh;
       background-color: #32CD32;
     }
 
     #logo {
       float: left;
-      margin-left: 20px;
+      margin-left: 3vh;
     }
   </style>
 
@@ -51,7 +52,7 @@ include 'sambung.php';
       <a href="index2.php"><img id="logo" src="logo.png" alt="logo" width="100px" height="60px"></a>
       <br>
       <p>
-        <font style="margin-left:20px;" size="+5" color="white" font face="Feather Bold">
+        <font size="+5" color="white" font face="Feather Bold">
           <?php echo $nama_sistem; ?>
         </font>
       </p>

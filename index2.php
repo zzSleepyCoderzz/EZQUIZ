@@ -8,9 +8,9 @@ $nokp = $_SESSION['idpengguna'];
  <!DOCTYPE html>
  <html lang="en" dir="ltr">
    <head>
-     <?php include 'menu.php'; ?>
      <meta charset="utf-8">
      <title></title>
+     <?php include 'menu.php'; ?>
    </head>
    <body>
      <style media="screen">
