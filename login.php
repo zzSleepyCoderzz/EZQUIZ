@@ -43,7 +43,7 @@ include 'header1.php';
      }
 
 
-     #new1{
+     #daftar{
        background-color: black;
        border: none;
        color: white;
@@ -57,7 +57,7 @@ include 'header1.php';
        border: 2px solid black;
      }
 
-     #new1:hover{
+     #daftar:hover{
        cursor: pointer;
        background-color: white;
        color: black;
@@ -147,8 +147,8 @@ include 'header1.php';
              <br>
              <br>
              <div id = "div1">
-               <button id = "new1" type="submit">DAFTAR MASUK</button>
-               <button id = "new1" type="reset" >RESET</button>
+               <button id = "daftar" type="submit">DAFTAR MASUK</button>
+               <button id = "daftar" type="reset" >RESET</button>
              </div>
              <h5>*Jika belum mendaftar, <a href="daftar_baru.php"> Daftar di sini.*   </h5>
              <br>

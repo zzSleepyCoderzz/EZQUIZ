@@ -22,5 +22,8 @@ if (isset($_POST["import"])) {
     }
     fclose($file);
   }
+  else{
+    echo "<script>alert('Tiada fail dipilih');
+        window.location = 'import_daftar.php' </script>";
+  }
 }
- ?>

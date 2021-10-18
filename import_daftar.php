@@ -39,7 +39,7 @@ include 'header.php';
        font-family: "DIN Next LT Pro Bold";
      }
 
-     #new1{
+     #upload{
        background-color: black;
        border: none;
        color: white;
@@ -55,7 +55,7 @@ include 'header.php';
        margin-right: 10px;
      }
 
-     #new1:hover{
+     #upload:hover{
        cursor: pointer;
        background-color: white;
        color: black;
@@ -84,7 +84,7 @@ include 'header.php';
               <input type="file" name="file" id= "file" class = "input-large"></input>
               <br>
               <br>
-              <button id = "new1" type="submit" id = "submit" name="import">Upload</button>
+              <button id = "upload" type="submit" id = "submit" name="import">Upload</button>
              </form>
              <br>
              <br>
