@@ -1,24 +1,33 @@
 <?php
+//Fail untuk sambung ke database
 require 'sambung.php';
+
+//Fail bagi header halaman utama
 include 'header1.php';
 
-if (isset($_POST['idpengguna'])){
+
+//Semak sekiranya pengguna wujud
+if (isset($_POST['idpengguna'])) {
   $idpengguna = $_POST['idpengguna'];
   $password = $_POST['password'];
   $nama = $_POST['nama'];
   $jantina = $_POST['jantina'];
   $daftar = "INSERT INTO pengguna (idpengguna, password, nama, jantina, aras) VALUES ('$idpengguna', '$password', '$nama', '$jantina', 'PELAJAR')";
   $hasil = mysqli_query($hubung, $daftar);
+
+  //Jika pengguna wujud
   if ($hasil) {
     echo "<script>alert('Pendaftaran berjaya');
     window.location = 'login.php'</script>";
   }
-  else{
+
+  //Jika pengguna tidak wujud
+  else {
     echo "<script>alert('Pendaftaran gagal');
       window.location = 'daftar_baru.php'</script>";
   }
 }
- ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -28,10 +37,14 @@ if (isset($_POST['idpengguna'])){
   <title></title>
   <br>
   <br>
+
+  <!-- Fail bagi menu halaman utama -->
   <?php include 'menu1.php'; ?>
 </head>
 
 <body>
+
+  <!-- Bahagian css -->
   <style>
     body {
       background-color: #ECEBE4;
@@ -175,18 +188,20 @@ if (isset($_POST['idpengguna'])){
     <table width="100%" border="0" align="center">
       <tr>
         <td align="center">
+
+          <!-- Form yang mengandungi semua maklumat yang perlu diisi -->
           <form method="POST">
 
+            <!-- No KP -->
             <div id="div2">
               <p>No K.P.</p>
             </div>
             <div id="div2">
-              <p><input id="inputkp" onblur="checkLength(this)" type="text" name="idpengguna"
-                  placeholder="Tanpa tanda -" maxlength="12" size="30"
-                  onkeypress="return event.charCode >= 48 && event.charCode <= 57" required> </p>
+              <p><input id="inputkp" onblur="checkLength(this)" type="text" name="idpengguna" placeholder="Tanpa tanda -" maxlength="12" size="30" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required> </p>
             </div>
             <br>
             <br>
+            <!-- Fungsi menyemak samada No KP adalah 12 digit -->
             <script>
               function checkLength(el) {
                 if (el.value.length != 12) {
@@ -195,15 +210,17 @@ if (isset($_POST['idpengguna'])){
               }
             </script>
 
+            <!-- Kata Laluan -->
             <div id="div2">
               <p>Kata Laluan</p>
             </div>
             <div id="div2">
-              <p><input id="inputpin" type="password" name="password" placeholder="4 digit sahaja" maxlength="4"
-                  size="30" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required></p>
+              <p><input id="inputpin" type="password" name="password" placeholder="4 digit sahaja" maxlength="4" size="30" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required></p>
             </div>
             <br>
             <br>
+
+            <!-- Nama Penuh -->
             <div id="div2">
               <p>Nama Penuh</p>
             </div>
@@ -215,6 +232,8 @@ if (isset($_POST['idpengguna'])){
             <div id="div2">
               <p>Jantina</p>
             </div>
+
+            <!-- Jantina -->
             <div id="div3">
               <select class="dropdown" name="jantina">
                 <option value="">---Pilih----</option>
@@ -224,6 +243,8 @@ if (isset($_POST['idpengguna'])){
             </div>
             <br>
             <br>
+
+            <!-- Butang untuk daftar -->
             <div id="div1">
               <button id="daftarbutton" type="submit">DAFTAR</button>
               <button id="daftarbutton" type="reset">RESET</button>

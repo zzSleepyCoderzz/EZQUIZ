@@ -1,9 +1,11 @@
+<!-- Page footer yang mengandungi simbol copyright -->
 <style media="screen">
-footer {
+
+#footer {
    position:relative;
    bottom:0;
-   align-content: : center;
-   height:60px;
+   align-content: center;
+   height: 60px;
    width: 100%;
 }
 
