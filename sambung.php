@@ -1,24 +1,32 @@
 <?php
+
+//Fail mengandungi semua info untuk sambung ke database
 $host = "localhost";
 $user = "root";
 $password = "";
 $database = "ezquiz";
+
+//Kod untuk hubun ke database
 $hubung = mysqli_connect($host, $user, $password, $database);
 if (mysqli_connect_errno()) {
   echo "Proses sambung ke pangkalan data gagal";
   exit();
 }
 
+//Info sistem
 $nama_sekolah = "SMK (L) METHODIST, JALAN HANG JEBAT";
 $nama_sistem = "ADVANCE-SISTEM PENILAIAN KENDIRI";
 $title = "EZQUIZ";
 $lencana = "lencana.jpg";
 ?>
 
+
 <script type="text/javascript">
+
+  //Array warna yang tersedia
   var colors = ["#A9F8FB", "#3DDC97", "#B2FFA9", "#160F29", "#020100", "#336699", "#9EE493", "#9046CF", "E8998D", "#EED2CC", "#A1683A", "red", "green", "#F1D302", "#32CD32"];
-
-
+  
+  //Fungsi menukar warna
   function color() {
 
     var newcolor = colors[localStorage.getItem("colour")];
@@ -37,6 +45,7 @@ $lencana = "lencana.jpg";
 
   }
 
+  //Fungsi merekod warna yang telah dipilih oleh pengguna
   function increment() {
     if (localStorage.getItem("colour") == "NaN") {
       localStorage.setItem("colour", 0);

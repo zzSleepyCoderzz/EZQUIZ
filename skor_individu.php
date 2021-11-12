@@ -1,9 +1,16 @@
 <?php
+
+//Fail untuk sambung ke database
 require 'sambung.php';
 require 'keselamatan.php';
+
+//Fail header selepas log in
 include 'header.php';
 
+//Dapatkan ID Pengguna semasa
 $idpengguna = $_SESSION['idpengguna'];
+
+//Diperlukan untuk suppress ralat sekiranya skor tiada data
 error_reporting(E_ERROR | E_PARSE);
 
  ?>
@@ -13,9 +20,13 @@ error_reporting(E_ERROR | E_PARSE);
    <head>
      <meta charset="utf-8">
      <title></title>
+
+     <!-- Fail menu selepas log in -->
      <?php include 'menu.php'; ?>
    </head>
    <body>
+
+     <!-- Fail menu halaman utama -->
      <style media="screen">
      body{
        background-color: #ECEBE4;
@@ -54,6 +65,8 @@ error_reporting(E_ERROR | E_PARSE);
          <hr>
          <?php
          $no = 1;
+
+         //Dapatkan dan paparkan rekod kuiz pengguna semasa
          $data1 = mysqli_query($hubung, "SELECT * FROM perekodan
          WHERE idpengguna = '$idpengguna' ORDER BY catatan_masa DESC
          limit 0,10");

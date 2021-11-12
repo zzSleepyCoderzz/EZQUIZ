@@ -1,11 +1,15 @@
 <?php
+
+//Fail untuk sambung ke database
 require 'sambung.php';
 require 'keselamatan.php';
 include 'header.php';
 
+//Dapatkan idtopik yang dipilih
 $topik_pilihan = $_GET['idtopik'];
 $_SESSION['pilihan'] = $topik_pilihan;
 
+//Dapatkan rekod topik yang dipilih
 $result = mysqli_query($hubung, "SELECT * FROM topik WHERE idtopik = '$topik_pilihan'");
 while ($res = mysqli_fetch_array($result)) {
   $papartopik = $res['topik'];
@@ -18,9 +22,13 @@ while ($res = mysqli_fetch_array($result)) {
    <head>
      <meta charset="utf-8">
      <title></title>
+
+     <!-- Fail menu selepas log in -->
      <?php include 'menu.php'; ?>
    </head>
    <body>
+
+     <!-- Bahagian css -->
      <style media="screen">
      body{
        background-color: #ECEBE4;
@@ -105,10 +113,11 @@ while ($res = mysqli_fetch_array($result)) {
          </tr>
          <?php
          $no = 1;
+
+         //Dapatkan dan paparkan setiap soalan bersertakan jawapan
          $data1 = mysqli_query($hubung , "SELECT * FROM soalan  AS q INNER JOIN pilihan AS a ON
          q.idsoalan = a.idsoalan WHERE q.idtopik=$topik_pilihan AND a.jawapan=1 GROUP BY a.idsoalan
          ORDER BY q.idsoalan ASC");
-
          while ($info1 = mysqli_fetch_array($data1)) {
           ?>
 
@@ -117,8 +126,12 @@ while ($res = mysqli_fetch_array($result)) {
             <td><?php echo $info1['soalan']; ?></td>
             <td><?php echo $info1['pilihan_jawapan']; ?></td>
             <td>
+
+              <!-- Butang edit soalan -->
               <a href = "edit_soalan.php?idsoalan=<?php echo $info1['idsoalan']; ?>">
               <button id = "papar"> EDIT </button>
+
+              <!-- Butang hapus soalan -->
               <a href = "hapus_soalan.php?idsoalan=<?php echo $info1['idsoalan']; ?>"  onclick = "return confirm('Awas! Semua rekod yang berkaitan akan dihapuskan, Anda Pasti?')">
               <button id = "hapus"> HAPUS </button>
             </td>

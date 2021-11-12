@@ -1,4 +1,6 @@
 <?php
+
+//Fail untuk sambung ke database
 require 'sambung.php';
 require 'keselamatan.php';
 include 'header.php';
@@ -9,6 +11,8 @@ include 'header.php';
    <head>
      <meta charset="utf-8">
      <title></title>
+
+     <!-- Fail menu standard selepas log in -->
      <?php include 'menu.php'; ?>
    </head>
    <body>

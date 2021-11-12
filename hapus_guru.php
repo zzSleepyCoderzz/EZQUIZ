@@ -1,8 +1,10 @@
 <?php
+
+//Fail untuk sambung ke database
 require 'sambung.php';
 require 'keselamatan.php';
 
-//Diperlukan untuk supress ralat kerana sekiranya guru tidak menghasilkan apa=apa soalan
+//Diperlukan untuk suppress ralat sekiranya guru tiada data
 error_reporting(E_ERROR | E_PARSE);
 
 $delguru = $_GET['idpengguna'];

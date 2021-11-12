@@ -1,12 +1,17 @@
 <?php
+
+//Fail untuk sambung ke database
 require 'sambung.php';
 require 'keselamatan.php';
+
+//Fail header selepas log in
 include 'header.php';
 
-
+//Dapatkan idsubjek yang dipilih
 $subjek_pilihan = $_GET['idsubjek'];
 $guru = $_SESSION['idpengguna'];
 
+//Dapatkan rekod subjek yang dipilih
 $result = mysqli_query($hubung , "SELECT * FROM subjek WHERE idsubjek = '$subjek_pilihan'");
 
 while ($res = mysqli_fetch_array($result)) {
@@ -20,10 +25,13 @@ while ($res = mysqli_fetch_array($result)) {
      <meta charset="utf-8">
      <title></title>
 
+     <!-- Fail menu selepas log in -->
      <?php include 'menu.php'; ?>
 
    </head>
    <body>
+
+     <!-- Bahagian css -->
      <style media="screen">
 
      body{
@@ -120,6 +128,8 @@ while ($res = mysqli_fetch_array($result)) {
 
      </style>
      <center><p id = "p1">SENARAI TOPIK SUBJEK : <?php echo $_GET['subjek']; ?></p></center>
+
+     <!-- Butang cipta topik -->
      <div id = "div1">
        <a href="tambah_topik.php?idsubjek=<?php echo $subjek_pilihan; ?>"> <button id = "button1">Cipta Topik</button></a>
      </div>
@@ -135,6 +145,8 @@ while ($res = mysqli_fetch_array($result)) {
          </tr>
          <?php
          $no = 1;
+
+         //Dapatkan dan paparkan setiap topik berkaitan dengan idsubjek yang dipilih
          $data1 = mysqli_query($hubung , "SELECT * FROM topik WHERE idsubjek  = '$subjek_pilihan' AND idpengguna = '$guru' ");
          while ($info1 = mysqli_fetch_array($data1)) {
           ?>
@@ -142,19 +154,27 @@ while ($res = mysqli_fetch_array($result)) {
             <td><?php echo $no; ?></td>
             <td><?php echo $info1['topik']; ?></td>
             <td>
+              
+              <!-- Butang tambah soalan -->
               <a href = "tambah_soalan.php?topik=<?php echo $info1['topik'];?>&idtopik=<?php echo $info1['idtopik']; ?>" >
                 <button id = "papar" style="margin-bottom: 5px;margin-top:5px;">Tambah</button>
               </a>
               <br>
+
+              <!-- Butang papar soalan -->
               <a href = "papar_soalan.php?idtopik=<?php echo $info1['idtopik']; ?>" >
                 <button id = "papar">Papar</button>
               </a>
             </td>
             <td>
+
+              <!-- Butang edit topik -->
               <a href="edit_topik.php?idtopik=<?php echo $info1['idtopik']; ?>">
                 <button id = "papar" style="margin-bottom: 5px;">Edit</button>
               </a>
               <br>
+
+              <!-- Butang hapus topik -->
               <a href="hapus_topik.php?idtopik=<?php echo $info1['idtopik']; ?>">
                 <button id = "hapus" >Hapus</button>
               </a>

@@ -2,7 +2,7 @@
 //Fail untuk sambung ke database
 require 'sambung.php';
 
-//Fail bagi header halaman utama
+//Fail header halaman utama
 include 'header1.php';
 
 
@@ -38,7 +38,7 @@ if (isset($_POST['idpengguna'])) {
   <br>
   <br>
 
-  <!-- Fail bagi menu halaman utama -->
+  <!-- Fail menu halaman utama -->
   <?php include 'menu1.php'; ?>
 </head>
 
@@ -192,20 +192,20 @@ if (isset($_POST['idpengguna'])) {
           <!-- Form yang mengandungi semua maklumat yang perlu diisi -->
           <form method="POST">
 
-            <!-- No KP -->
+            <!-- ID Pengguna -->
             <div id="div2">
-              <p>No K.P.</p>
+              <p>ID Pengguna</p>
             </div>
             <div id="div2">
-              <p><input id="inputkp" onblur="checkLength(this)" type="text" name="idpengguna" placeholder="Tanpa tanda -" maxlength="12" size="30" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required> </p>
+              <p><input id="inputkp" onblur="checkLength(this)" maxlength = "14" type="text" name="idpengguna" placeholder="Tanpa tanda -"  size="30" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required> </p>
             </div>
             <br>
             <br>
-            <!-- Fungsi menyemak samada No KP adalah 12 digit -->
+            <!-- Fungsi menyemak samada ID Pengguna adalah 12 digit -->
             <script>
               function checkLength(el) {
                 if (el.value.length != 12) {
-                  alert("Nombor KP mesti 12 digit")
+                  alert("ID Pengguna mesti 12 digit")
                 }
               }
             </script>

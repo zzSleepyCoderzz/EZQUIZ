@@ -4,7 +4,7 @@
 require 'sambung.php';
 require 'keselamatan.php';
 
-//Fail header standard
+//Fail header selepas log in
 include 'header.php';
 ?>
 
@@ -26,6 +26,8 @@ while ($dataSoalan = mysqli_fetch_array($pilihSoalan)) {
 <head>
   <meta charset="utf-8">
   <title></title>
+
+  <!-- Fail menu selepas log in -->
   <?php include 'menu.php'; ?>
 </head>
 
@@ -118,11 +120,15 @@ while ($dataSoalan = mysqli_fetch_array($pilihSoalan)) {
 
           <!-- Form di mana semua perubahan direkod sebelum dihantar ke database -->
           <form action="save_edit_soalan.php" method="POST" enctype="multipart/form-data">
+
+            <!-- Nombor Soalan bagi topik yang dipilih-->
             <p>
               <label>Soalan ke- <?php echo $nom_soalan; ?></label>
               <input type="text" name="idsoalan" value="<?php echo $soalan_terpilih; ?>" readonly hidden>
             </p>
             <br>
+
+            <!-- Text soalan -->
             <p>
               <label>Soalan</label>
             </p>
@@ -131,6 +137,8 @@ while ($dataSoalan = mysqli_fetch_array($pilihSoalan)) {
             </p>
             <br>
             <br>
+
+            <!-- Gambar -->
             <p>
               <label> Gambar :
                 <?php
@@ -165,6 +173,8 @@ while ($dataSoalan = mysqli_fetch_array($pilihSoalan)) {
             <?php $no++;
             } ?>
             <br>
+
+            <!-- Jawapan -->
             <p> Jawapan : <?php echo $jawapan; ?></p>
             <br>
 

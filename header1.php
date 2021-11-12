@@ -1,4 +1,6 @@
 <?php
+
+//Fail untuk sambung ke database
 include 'sambung.php';
 ?>
 
@@ -10,7 +12,9 @@ include 'sambung.php';
   <title>EZQUIZ</title>
 </head>
 
-<body style="margin:0;" onload = "javascript:color();" >
+<body style="margin:0;" onload = "javascript:color();">
+  
+  <!-- Bahagian css -->
   <style media="screen">
     #changecolor {
       background: linear-gradient(to bottom right, pink, blue, lightblue);

@@ -1,6 +1,10 @@
 <?php
+
+//Fail untuk sambung ke database
 require 'sambung.php';
 require 'keselamatan.php';
+
+//Fail header selepas log in
 include 'header.php';
  ?>
 
@@ -9,9 +13,13 @@ include 'header.php';
    <head>
      <meta charset="utf-8">
      <title></title>
+
+     <!-- Fail menu selepas log in -->
      <?php include 'menu.php'; ?>
    </head>
    <body>
+
+     <!-- Bahagian css -->
      <style media="screen">
      body{
        background-color: #ECEBE4;
@@ -68,6 +76,8 @@ include 'header.php';
          <?php
          $no = 1;
          $data1 = mysqli_query($hubung , "SELECT * FROM subjek");
+
+         //Dapatkan dan paparkan semua subjek kuiz yang tersedia
          while ($info1 = mysqli_fetch_array($data1)) {
            $dataBil = mysqli_query($hubung , "SELECT COUNT(idsubjek) AS
            'bil' FROM topik WHERE idsubjek = '$info1[idsubjek]'");

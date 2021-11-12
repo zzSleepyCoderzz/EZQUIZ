@@ -4,7 +4,7 @@
 require 'sambung.php';
 require 'keselamatan.php';
 
-//Fail header standard
+//Fail header selepas log in
 include 'header.php';
 ?>
 
@@ -51,6 +51,8 @@ while ($dataTopik = mysqli_fetch_array($pilihTopik)) {
 <head>
   <meta charset="utf-8">
   <title></title>
+
+  <!-- Fail menu selepas log in -->
   <?php include 'menu.php'; ?>
 </head>
 

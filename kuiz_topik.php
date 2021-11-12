@@ -1,10 +1,16 @@
 <?php
+
+//Fail untuk sambung ke database
 require 'sambung.php';
 require 'keselamatan.php';
+
+//Fail header selepas log in
 include 'header.php';
 
+//Dapatkan subjek yang dipilih di halamn sebelum ini
 $subjek_pilihan = $_GET['idsubjek'];
 
+//Dapatkan semua rekod subjek
 $result = mysqli_query($hubung , "SELECT * FROM subjek WHERE idsubjek = '$subjek_pilihan'");
 while ($res = mysqli_fetch_array($result)) {
   $paparsubjek = $res['subjek'];
@@ -16,9 +22,13 @@ while ($res = mysqli_fetch_array($result)) {
    <head>
      <meta charset="utf-8">
      <title></title>
+
+     <!-- Fail  menu selepas log in -->
      <?php include 'menu.php'; ?>
    </head>
    <body>
+
+     <!-- Bahagian css -->
      <style media="screen">
      body{
        background-color: #ECEBE4;
@@ -62,7 +72,7 @@ while ($res = mysqli_fetch_array($result)) {
      </style>
      <center><p id = "p1">SENARAI TOPIK UNTUK SUBJEK : <?php echo $paparsubjek; ?></h2></center>
      <main>
-       <table style="font-family: DIN Next LT Pro Light;" width = "70%" border = "0" align = "center" style="font=size:16px">
+       <table style="font-family: DIN Next LT Pro Light;" width = "70%" border = "0" align = "center" style="font-size:16px">
          <tr>
            <td width = "2%"><b> Bil. </b></td>
            <td width = "50%"><b> Topik </b></td>
@@ -74,6 +84,8 @@ while ($res = mysqli_fetch_array($result)) {
          $no = 1;
          $data1 = mysqli_query($hubung , "SELECT * FROM topik
          WHERE idsubjek = '$subjek_pilihan'");
+
+         //Dapatkan dan paparkan semua topik kuiz yang tersedia
          while ($info1 = mysqli_fetch_array($data1)) {
            $dataBil = mysqli_query($hubung , "SELECT COUNT(idtopik) AS 'bil'
            FROM soalan WHERE idtopik = '$info1[idtopik]'");

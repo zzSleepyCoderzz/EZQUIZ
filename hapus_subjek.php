@@ -1,10 +1,16 @@
 <?php
+
+//Fail untuk sambung ke database
 require 'sambung.php';
 require 'keselamatan.php';
 
+//Diperlukan untuk suppress ralat sekiranya subjek tiada data
 error_reporting(E_ERROR | E_PARSE);
 
+//Dapatkan ID Subjek
 $del_subjek = $_GET['idsubjek'];
+
+//Dapatkan data subjek
 $delete1 = mysqli_query($hubung , "SELECT * FROM subjek AS s
   INNER JOIN topik AS t ON s.idsubjek = t.idsubjek
   INNER JOIN soalan AS q ON t.idtopik = q.idtopik
@@ -16,6 +22,7 @@ $infoDel = mysqli_fetch_array($delete1);
 $delete1 = $del_subjek;
 $delete2 = $infoDel['idtopik'];
 
+//Delete rekod subjek
 $hapuskan1 = mysqli_query($hubung , "DELETE FROM subjek WHERE idsubjek = '$delete1' ");
 $hapuskan2 = mysqli_query($hubung , "DELETE FROM topik WHERE idsubjek = '$delete1' ");
 $hapuskan3 = mysqli_query($hubung , "DELETE FROM soalan WHERE idtopik = '$delete2' ");

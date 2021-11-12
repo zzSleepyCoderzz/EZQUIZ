@@ -1,4 +1,6 @@
 <?php
+
+//Fail untuk sambung ke database
 include 'sambung.php';
 ?>
 
@@ -12,6 +14,7 @@ include 'sambung.php';
 
 <body style="margin:0;" onload = "javascript:color();" >
 
+  <!-- Bahagian css -->
   <style media="screen">
     #changecolor {
       background: linear-gradient(to bottom right, pink, blue, lightblue);
@@ -47,6 +50,7 @@ include 'sambung.php';
   </style>
 
   <center id="header1">
+      <!-- Butang menukar warna-->
       <button id="changecolor" onclick="color();increment();">Warna</button>
       <br>
       <a href="index2.php"><img id="logo" src="logo.png" alt="logo" width="100px" height="60px"></a>

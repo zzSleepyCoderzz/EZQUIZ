@@ -1,14 +1,21 @@
-<?php include 'sambung.php'; ?>
+<?php 
+
+//Fail untuk sambung ke database
+include 'sambung.php'; 
+?>
 
 <center>
+
+  <!-- Bahagian css -->
   <style media="screen">
-    .menu1button:hover{
+    .menu1button:hover {
       cursor: pointer;
       background-color: lightblue;
       box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
     }
-    .menu1button{
-      background-color:  #32CD32;
+
+    .menu1button {
+      background-color: #32CD32;
       border: none;
       color: white;
       padding: 15px 32px;
@@ -18,7 +25,8 @@
       font-size: 16px;
       border-radius: 30px;
     }
-    div{
+
+    div {
       background-color: #ECEBE4;
       justify-content: space-between;
       display: flex;
@@ -26,8 +34,8 @@
     }
   </style>
   <div>
-    <a href="index.php"><button class = "menu1button">HOME</button></a>
-    <a href="login.php"><button class = "menu1button">DAFTAR MASUK</button></a>
-    <a href="daftar_baru.php"><button class = "menu1button">DAFTAR BARU</button></a>
+    <a href="index.php"><button class="menu1button">HOME</button></a>
+    <a href="login.php"><button class="menu1button">DAFTAR MASUK</button></a>
+    <a href="daftar_baru.php"><button class="menu1button">DAFTAR BARU</button></a>
   </div>
 </center>

@@ -1,10 +1,18 @@
 <?php
+
+//Fail untuk sambung ke database
 require 'sambung.php';
 require 'keselamatan.php';
+
+//Fail menu selepas log in
 include 'header.php';
 ?>
 
 <?php
+
+//Mempunyai dua segmen, kod sekiranya pengguna telah mencari sebuah ID
+//ataupun sekiranya belum mencari sebuah ID
+
 if (isset($_POST['SUBMIT'])) {
   $jumpakp = $_POST['carikp'];
 ?>
@@ -15,7 +23,7 @@ if (isset($_POST['SUBMIT'])) {
   </center>
   <div id="carian">
     <form method="post">
-      <b>CARIAN NO.K/P:</b>
+      <b>CARIAN ID Pengguna:</b>
       <input type="text" name="carikp" maxLength='12' autofocus>
       <input id="butangcarian" type="submit" name="SUBMIT" value="CARI">
     </form>
@@ -27,6 +35,8 @@ if (isset($_POST['SUBMIT'])) {
   <?php
 
   $no = 1;
+
+  //Dapatkan dan paparkan setiap soalan bersertakan jawapan
   $data1 = mysqli_query($hubung, "SELECT * FROM pengguna
 WHERE idpengguna='$jumpakp'
 ORDER BY nama ASC");
@@ -37,7 +47,7 @@ ORDER BY nama ASC");
       <table width="70%" border="0" align="center">
         <tr>
           <td width="5%"><b>Bil.</b></td>
-          <td width="15%"><b>ID Pelajar</b></td>
+          <td width="15%"><b>ID Pengguna</b></td>
           <td width="20%"><b>Password</b></td>
           <td width="30%"><b>Nama Pelajar</b></td>
           <td width="20%"><b>Jantina</b></td>
@@ -82,6 +92,8 @@ ORDER BY nama ASC");
           <hr>
           <?php
           $no = 1;
+
+          //Dapatkan dan paparkan semua rekod pelajar
           $data1 = mysqli_query($hubung, "SELECT * FROM pengguna WHERE aras = 'PELAJAR' ORDER BY nama ASC");
           while ($info1 = mysqli_fetch_array($data1)) {
           ?>
@@ -121,7 +133,6 @@ ORDER BY nama ASC");
         <?php } else { ?>
 
           <?php include 'menu.php'; ?>
-
           <center>
             <p id="p1"> SENARAI PELAJAR BERDAFTAR</p>
           </center>
@@ -192,6 +203,8 @@ ORDER BY nama ASC");
             </head>
 
             <body>
+
+              <!-- Bahagian css -->
               <style media="screen">
                 body {
                   background-color: #ECEBE4;

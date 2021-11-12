@@ -4,10 +4,10 @@
 require 'sambung.php';
 require 'keselamatan.php';
 
-//Fail header standard selepas log in
+//Fail header selepas log in
 include 'header.php';
 
-//Diperlukan untuk supress ralat kerana sekiranya guru tidak menghasilkan apa=apa soalan
+//Diperlukan untuk supress ralat kerana sekiranya tiada data
 error_reporting(E_ERROR | E_PARSE);
 ?>
 
@@ -18,7 +18,7 @@ error_reporting(E_ERROR | E_PARSE);
   <meta charset="utf-8">
   <title></title>
 
-  <!-- Fail bagi menu standard selepas log in-->
+  <!-- Fail bagi menu selepas log in-->
   <?php include 'menu.php'; ?>
 </head>
 
