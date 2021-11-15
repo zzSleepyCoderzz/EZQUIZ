@@ -21,6 +21,8 @@ if(mysqli_num_rows($query) == 0 || $row['password'] != $pass){
   window.location = 'login.php'</script>";
 }
 else {
+
+  //Mesej jika login berjaya 
   $_SESSION['idpengguna'] = $row ['idpengguna'];
   $_SESSION['level'] = $row ['aras'];
   echo "<script> alert('Login Berjaya');

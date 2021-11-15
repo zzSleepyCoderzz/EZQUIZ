@@ -160,7 +160,7 @@ $next = $total + 1;
         <td width="10%" align="center">
           <br>
           <br>
-          
+
           <!-- Butang tambah-->
           <input id="cipta" type="submit" name="submit" value="TAMBAH">
         </td>
@@ -172,5 +172,4 @@ $next = $total + 1;
   </main>
   <center style="margin-top:30px;"><?php include 'footer.php'; ?></center>
 </body>
-
 </html>

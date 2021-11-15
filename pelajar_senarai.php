@@ -36,7 +36,7 @@ if (isset($_POST['SUBMIT'])) {
 
   $no = 1;
 
-  //Dapatkan dan paparkan setiap soalan bersertakan jawapan
+  //Dapatkan dan paparkan rekod murid yang dicari
   $data1 = mysqli_query($hubung, "SELECT * FROM pengguna
 WHERE idpengguna='$jumpakp'
 ORDER BY nama ASC");
