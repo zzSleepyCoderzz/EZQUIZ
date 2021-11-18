@@ -16,7 +16,6 @@ require 'sambung.php';
 </head>
 
 <body>
-
   <!-- Bahagian css -->
   <style media="screen">
     body {

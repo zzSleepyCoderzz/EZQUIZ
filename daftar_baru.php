@@ -100,7 +100,7 @@ if (isset($_POST['idpengguna'])) {
       color: black;
     }
 
-    #inputkp {
+    #inputid {
       background-color: #ECEBE4;
       border: 0;
       border-bottom: 2px solid grey;
@@ -112,7 +112,7 @@ if (isset($_POST['idpengguna'])) {
       padding-left: 30px;
     }
 
-    #inputkp:focus {
+    #inputid:focus {
       outline: none !important;
       border: 0;
       border-bottom: 3px solid #555;
@@ -197,7 +197,7 @@ if (isset($_POST['idpengguna'])) {
               <p>ID Pengguna</p>
             </div>
             <div id="div2">
-              <p><input id="inputkp" onblur="checkLength(this)" maxlength = "14" type="text" name="idpengguna" placeholder="Tanpa tanda -"  size="30" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required> </p>
+              <p><input id="inputid" onblur="checkLength(this)" maxlength = "12" type="text" name="idpengguna" placeholder="Tanpa tanda -"  size="30" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required> </p>
             </div>
             <br>
             <br>

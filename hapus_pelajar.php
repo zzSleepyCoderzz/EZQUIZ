@@ -16,8 +16,9 @@ if (!$conn) {
 
 //Hapuskan rekod pelajar berkenaan
 $sql = "DELETE FROM pengguna WHERE idpengguna = $id ";
+$sql2 = "DELETE FROM perekodan WHERE idpengguna = $id ";
 
-if (mysqli_query($conn, $sql)) {
+if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql2)) {
     mysqli_close($conn);
 
     //Mesej jika berjaya

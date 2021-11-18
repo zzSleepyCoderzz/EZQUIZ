@@ -33,6 +33,10 @@ include 'header1.php';
       padding-right: 30px;
     }
 
+    h5{
+      padding-left: 20px;
+    }
+
     #p1 {
       font-family: "Feather Bold";
       font-size: 40px;
@@ -70,7 +74,7 @@ include 'header1.php';
       color: black;
     }
 
-    #inputkp {
+    #inputid {
       background-color: #ECEBE4;
       border: 0;
       border-bottom: 2px solid grey;
@@ -82,7 +86,7 @@ include 'header1.php';
       padding-left: 30px;
     }
 
-    #inputkp:focus {
+    #inputid:focus {
       outline: none !important;
       border: 0;
       border-bottom: 3px solid #555;
@@ -115,6 +119,12 @@ include 'header1.php';
     }
   </style>
 
+  <script>
+    function popup(){
+      alert("Sila hubungi ADMIN sistem");
+    }
+  </script>
+
   <center style="margin-left:30px;margin-top:30px;">
     <p id="p1">LOG MASUK PENGGUNA</p>
   </center>
@@ -133,7 +143,7 @@ include 'header1.php';
               <p>ID Pengguna</p>
             </div>
             <div id="div2">
-              <p><input id="inputkp" onblur="checklength(this)" type="text" name="idpengguna" placeholder="Tanpa tanda -" maxlength="14" size="30" onkeypress="return event.charCode >= 48 && event.charCode <= 57"></p>
+              <p><input id="inputid" onblur="checklength(this)" type="text" name="idpengguna" placeholder="Tanpa tanda -" maxlength="12" size="30" onkeypress="return event.charCode >= 48 && event.charCode <= 57"></p>
             </div>
 
             <!-- Fungsi menyemak samada ID Pengguna adalah 12 digit -->
@@ -164,7 +174,10 @@ include 'header1.php';
               <button id="daftar" type="submit">DAFTAR MASUK</button>
               <button id="daftar" type="reset">RESET</button>
             </div>
-            <h5>*Jika belum mendaftar, <a href="daftar_baru.php"> Daftar di sini.* </h5>
+            <h5>*Jika belum mendaftar, <a href="daftar_baru.php"> Daftar di sini.*</a></h5>
+
+            <!-- href="javascript:void(0);" tells the page to go nowhere-->
+            <h5><a href="javascript:void(0);" onclick="popup();">*Lupa Password Anda?*</a></h5>
             <br>
           </form>
         </td>
