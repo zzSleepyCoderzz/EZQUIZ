@@ -1,5 +1,6 @@
 <?php
 
+
 //Fail untuk sambung ke database
 require 'sambung.php';
 require 'keselamatan.php';
@@ -132,7 +133,7 @@ while ($res = mysqli_fetch_array($result)) {
               <button id = "papar"> EDIT </button>
 
               <!-- Butang hapus soalan -->
-              <a href = "hapus_soalan.php?idsoalan=<?php echo $info1['idsoalan']; ?>"  onclick = "return confirm('Awas! Semua rekod yang berkaitan akan dihapuskan, Anda Pasti?')">
+              <a href = "hapus_soalan.php?idsoalan=<?php echo $info1['idsoalan']; ?>&idtopik=<?php echo $topik_pilihan; ?>"  onclick = "return confirm('Awas! Semua rekod yang berkaitan akan dihapuskan, Anda Pasti?')">
               <button id = "hapus"> HAPUS </button>
             </td>
           </tr>
