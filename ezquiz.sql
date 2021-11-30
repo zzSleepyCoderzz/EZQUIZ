@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2021 at 02:52 AM
+-- Generation Time: Nov 30, 2021 at 05:35 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `pengguna` (
-  `idpengguna` bigint(12) NOT NULL,
+  `idpengguna` varchar(12) NOT NULL,
   `password` varchar(10) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `jantina` varchar(10) NOT NULL,
@@ -40,9 +40,9 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`idpengguna`, `password`, `nama`, `jantina`, `aras`) VALUES
-(12123123123, '1234', 'Timothy Chin Guan You', 'LELAKI', 'PELAJAR'),
-(111111111111, '1111', 'SUDO', 'NON_BINARY', 'ADMIN'),
-(222222222222, '1234', 'Puan Norul Aishah', 'PEREMPUAN', 'GURU');
+('041001141413', '1234', 'Timothy Chin Guan You', 'LELAKI', 'GURU'),
+('111111111111', '1111', 'SUDO', 'NON-BINARY', 'ADMIN'),
+('222222222222', '2222', 'Puan Norul Aishah', 'PEREMPUAN', 'GURU');
 
 -- --------------------------------------------------------
 
@@ -57,6 +57,13 @@ CREATE TABLE `perekodan` (
   `skor` varchar(5) NOT NULL,
   `catatan_masa` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `perekodan`
+--
+
+INSERT INTO `perekodan` (`idperekodan`, `idpengguna`, `idtopik`, `skor`, `catatan_masa`) VALUES
+(11, '041001141413', 34, '5', '2021-11-30 16:12:08');
 
 -- --------------------------------------------------------
 
@@ -96,7 +103,23 @@ INSERT INTO `pilihan` (`idpilihan`, `nom_soalan`, `jawapan`, `pilihan_jawapan`, 
 (166, 5, '0', 'Steve Jobs', 70),
 (167, 5, '0', 'Satoshi Nakamoto', 70),
 (168, 5, '0', 'Alan Turing', 70),
-(169, 5, '1', 'James Gosling', 70);
+(169, 5, '1', 'James Gosling', 70),
+(170, 1, '1', '1', 71),
+(171, 1, '0', '2', 71),
+(172, 1, '0', '3', 71),
+(173, 1, '0', '4', 71),
+(178, 1, '1', '1', 73),
+(179, 1, '0', '2', 73),
+(180, 1, '0', '3', 73),
+(181, 1, '0', '4', 73),
+(182, 1, '0', 'A word', 74),
+(183, 1, '0', 'A time in history', 74),
+(184, 1, '0', 'A place', 74),
+(185, 1, '1', 'Your female parental figure', 74),
+(186, 1, '1', 'Saya', 75),
+(187, 1, '0', 'Adolf Hitler', 75),
+(188, 1, '0', 'Hideki Tojo', 75),
+(189, 1, '0', 'Benito Mussolini', 75);
 
 -- --------------------------------------------------------
 
@@ -121,7 +144,11 @@ INSERT INTO `soalan` (`idsoalan`, `nom_soalan`, `soalan`, `gambarajah`, `idtopik
 (67, 2, 'Apakah 3 bahasa pengekodan yang digunakan dalam web dev?', '', 34),
 (68, 3, ' Apakah maksud WWW?', 'wwwimg.jpg', 34),
 (69, 4, 'Siapakah pencipta WWW?', '', 34),
-(70, 5, 'Siapakah pencipta bahasa pengaturcaraan Java?', '', 34);
+(70, 5, 'Siapakah pencipta bahasa pengaturcaraan Java?', '', 34),
+(71, 1, 'Testing', '', 38),
+(73, 1, 'Testing ', '', 40),
+(74, 1, 'What is a noun?', '', 41),
+(75, 1, 'Siapakah pemimpin negara Jerman semasa WW2?', '', 42);
 
 -- --------------------------------------------------------
 
@@ -139,7 +166,10 @@ CREATE TABLE `subjek` (
 --
 
 INSERT INTO `subjek` (`idsubjek`, `subjek`) VALUES
-(1, 'Sains Komputer');
+(1, 'Sains Komputer'),
+(2, 'Bahasa Melayu'),
+(3, 'Bahasa Inggeris'),
+(4, 'Sejarah');
 
 -- --------------------------------------------------------
 
@@ -160,7 +190,11 @@ CREATE TABLE `topik` (
 --
 
 INSERT INTO `topik` (`idtopik`, `topik`, `markah`, `idsubjek`, `idpengguna`) VALUES
-(34, 'General', 100, 1, '222222222222');
+(34, 'General', 100, 1, '222222222222'),
+(38, 'Bab 1 Tingkatan 5', 100, 1, '222222222222'),
+(40, 'Bahasa dan Sastera', 100, 2, '222222222222'),
+(41, 'Grammar', 100, 3, '222222222222'),
+(42, 'Perang Dunia Kedua', 100, 4, '222222222222');
 
 --
 -- Indexes for dumped tables
@@ -176,19 +210,23 @@ ALTER TABLE `pengguna`
 -- Indexes for table `perekodan`
 --
 ALTER TABLE `perekodan`
-  ADD PRIMARY KEY (`idperekodan`);
+  ADD PRIMARY KEY (`idperekodan`),
+  ADD KEY `idpengguna` (`idpengguna`),
+  ADD KEY `idtopik` (`idtopik`);
 
 --
 -- Indexes for table `pilihan`
 --
 ALTER TABLE `pilihan`
-  ADD PRIMARY KEY (`idpilihan`);
+  ADD PRIMARY KEY (`idpilihan`),
+  ADD KEY `idsoalan` (`idsoalan`);
 
 --
 -- Indexes for table `soalan`
 --
 ALTER TABLE `soalan`
-  ADD PRIMARY KEY (`idsoalan`);
+  ADD PRIMARY KEY (`idsoalan`),
+  ADD KEY `idtopik` (`idtopik`);
 
 --
 -- Indexes for table `subjek`
@@ -200,7 +238,9 @@ ALTER TABLE `subjek`
 -- Indexes for table `topik`
 --
 ALTER TABLE `topik`
-  ADD PRIMARY KEY (`idtopik`);
+  ADD PRIMARY KEY (`idtopik`),
+  ADD KEY `idsubjek` (`idsubjek`),
+  ADD KEY `idpengguna` (`idpengguna`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -210,31 +250,31 @@ ALTER TABLE `topik`
 -- AUTO_INCREMENT for table `perekodan`
 --
 ALTER TABLE `perekodan`
-  MODIFY `idperekodan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idperekodan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `pilihan`
 --
 ALTER TABLE `pilihan`
-  MODIFY `idpilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
+  MODIFY `idpilihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=229;
 
 --
 -- AUTO_INCREMENT for table `soalan`
 --
 ALTER TABLE `soalan`
-  MODIFY `idsoalan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `idsoalan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `subjek`
 --
 ALTER TABLE `subjek`
-  MODIFY `idsubjek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idsubjek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `topik`
 --
 ALTER TABLE `topik`
-  MODIFY `idtopik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `idtopik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

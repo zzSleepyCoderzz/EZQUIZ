@@ -142,8 +142,16 @@ error_reporting(E_ERROR | E_PARSE);
           <td> <?php echo $no; ?></td>
           <td> <?php echo $info1['nama']; ?></td>
           <td> <?php echo $info1['idpengguna']; ?></td>
-          <td> <?php echo $infoTopik['biltopik']; ?></td>
-          <td> <?php echo $infosoalan['bilsoalan']; ?></td>
+          <td> <?php if ($infoTopik['biltopik'] != null) {
+                  echo $infoTopik['biltopik'];
+                } else {
+                  echo 0;
+                } ?></td>
+          <td> <?php if ($infosoalan['bilsoalan'] != null) {
+                  echo $infosoalan['bilsoalan'];
+                } else {
+                  echo 0;
+                } ?></td>
           <td><a href="hapus_guru.php?idpengguna=<?php echo $info1['idpengguna'];  ?>" onclick="return confirm ('AWAS!, Semua rekod yang berkaitan akan dihapuskan , Anda Pasti?')">
               <button id="delete"> HAPUS </button></td>
         </tr>

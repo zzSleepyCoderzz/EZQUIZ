@@ -1,15 +1,15 @@
 <?php
-
 //Fail untuk sambung ke database
 require 'sambung.php';
 require 'keselamatan.php';
 
-//Diperlukan untuk suppress ralat sekiranya guru tiada data
+//Diperlukan untuk suppress ralat sekiranya subjek tiada data
 error_reporting(E_ERROR | E_PARSE);
 
 $delguru = $_GET['idpengguna'];
 
 //Mendapatkan semua rekod yang dihasilkan oleh guru tersebut
+//ON does not seem to make a difference
 $delete1 = mysqli_query($hubung,
 "SELECT * FROM pengguna AS u INNER JOIN topik AS t
  ON u.idpengguna = t.idpengguna INNER JOIN soalan AS q

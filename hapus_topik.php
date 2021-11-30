@@ -2,7 +2,7 @@
 require 'sambung.php';
 require 'keselamatan.php';
 
-//Diperlukan untuk suppress ralat sekiranya topik tiada data
+//Diperlukan untuk suppress ralat sekiranya subjek tiada data
 error_reporting(E_ERROR | E_PARSE);
 
 //Dapatkan ID Topik

@@ -80,7 +80,7 @@ ORDER BY nama ASC");
 
       <br>
       <main>
-        <table width="70%" border="0" align="center" style='font-size:16px'>
+        <table width="80%" border="0" align="center" style='font-size:16px'>
           <tr>
             <td width="5%"><b> Bil. </b></td>
             <td width="15%"><b> ID Pelajar </b></td>
